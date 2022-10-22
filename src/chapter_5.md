@@ -19,7 +19,7 @@
 
 ##### Impuridade de Gini
 
-$$G_{folha} = 1 - (P_{ac._{1}})^2 - (P_{ac._{2}})^2 - \cdots - (P_{ac._{N}})^2$$
+$$G_{folha} = 1 - (P_{ac_{1}})^2 - (P_{ac_{2}})^2 - \cdots - (P_{ac_{N}})^2$$
 
 $$Total = medias\ pesadas\ da\ impureza\ de\ Gini\ nas\ folhas$$
 
