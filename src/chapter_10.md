@@ -39,7 +39,7 @@
    2. Considerando um conjunto aleatório de subconjuntos de atributos (o número de atributos, geralmente, é a raíz quadrada de $n$);
 3. Repetir os passos 1 e 2 pelo número de árvores pretendidas;
 4. Estimar a assertividade da *Random Forest*.
-   1. Utilizando amostras *Out-Of-Bag* e agregação, calculando o erro $Out-Of-Bag$;
+   1. Utilizando amostras *Out-Of-Bag* e agregação, calculando o erro *Out-Of-Bag*;
    2. Iterar pelos passos 2 e 3, alterando o número de atributos utilizados, minimizando o erro.
 
 ## *Boosting*
