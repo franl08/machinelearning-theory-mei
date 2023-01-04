@@ -7,3 +7,4 @@
 - [Teórica 05](./chapter_5.md)
 - [Teórica 06](./chapter_6.md)
 - [Teórica 07](./chapter_7.md)
+- [Téorica 08](./chapter_8.md)
