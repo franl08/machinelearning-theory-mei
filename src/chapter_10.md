@@ -81,7 +81,7 @@ Os modelos trabalham combinando múltiplos *learners* de base num único líder 
 
 Existem dois grupos de modelos de *ensemble*:
 
-- **Modelos de *ensemble* paralelo**: tem como lógia aumentar a independência entre os *learners* de base. Apesar dos erros das previsões feitas pelos modelos serem diferentes, isto permite que o *ensemble model* possa fazer uma média dos erros;
-  - Exemplos: *Random Forest* com árvores de decisão indepentes.
-- **Modelos de *ensemble* sequencial**: tem omo lógica aumentar a dependência entre os *learners* de base. Apesar dos erros feitos pelo modelo 1 estarem sequencialmente corretos, pelo modelo 2 também e por aí adiante, isto ajuda a obter o *ensemble* mais preciso possível.
+- **Modelos de *ensemble* paralelo**: tem como lógica aumentar a independência entre os *learners* de base. Apesar dos erros das previsões feitas pelos modelos serem diferentes, isto permite que o *ensemble model* possa fazer uma média dos erros;
+  - Exemplos: *Random Forest* com árvores de decisão independentes.
+- **Modelos de *ensemble* sequencial**: tem como lógica aumentar a dependência entre os *learners* de base. Apesar dos erros feitos pelo modelo 1 estarem sequencialmente corretos, pelo modelo 2 também e por aí adiante, isto ajuda a obter o *ensemble* mais preciso possível.
   - Exemplos: *AdaBoost ensemble model*.
