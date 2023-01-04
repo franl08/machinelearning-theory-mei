@@ -82,11 +82,11 @@ Se selecionarmos uma ação não-*greedy*, entaõ estaremos a explorar, visto qu
 ## *Q-Learning vs SARSA*
 
 - SARSA:
-  - $Q(s_t, a_t) = Q(s_t, a_t) + \alpha[r_{t + 1} + \gamma \times Q(s_{t + 1}, a_{t + 1}) - Q(s_t, a_t)].
+  - $Q(s_t, a_t) = Q(s_t, a_t) + \alpha[r_{t + 1} + \gamma \times Q(s_{t + 1}, a_{t + 1}) - Q(s_t, a_t)]$.
     - O agente está no estado 1, realiza a ação 1 e obtém a recompensa 1;
     - No estado 2, realiza a ação 2 e obtém a recompensa 2 e ,então, atualiza o valor da ação 1 no estado 1.
 - *Q-Learning*:
-  - $Q(s_t, a_t) = Q(s_t, a_t) + \alpha[r_{t + 1} + \gamma \times MAX_a\ Q(s_{t + 1}, a_{t + 1}) - Q(s_t, a_t)];
+  - $Q(s_t, a_t) = Q(s_t, a_t) + \alpha[r_{t + 1} + \gamma \times MAX_a\ Q(s_{t + 1}, a_{t + 1}) - Q(s_t, a_t)]$;
     - O agente está no estado 1, realiza a ação 1 e obtém a recompensa 1;
     - Vê a recompensa máxima no estado 2 e atualiza o valor da ação 1 realizado no estado 1.
 - O SARSA considera a política de controlo que está a ser seguida e atualiza o valor das ações;
