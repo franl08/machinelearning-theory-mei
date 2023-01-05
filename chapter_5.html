@@ -1,0 +1,311 @@
+<!DOCTYPE HTML>
+<html lang="pt" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Teórica 05 - Teóricas de DAA</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="chapter_1.html"><strong aria-hidden="true">1.</strong> Teórica 01</a></li><li class="chapter-item expanded "><a href="chapter_2.html"><strong aria-hidden="true">2.</strong> Teórica 02</a></li><li class="chapter-item expanded "><a href="chapter_3.html"><strong aria-hidden="true">3.</strong> Teórica 03</a></li><li class="chapter-item expanded "><a href="chapter_4.html"><strong aria-hidden="true">4.</strong> Teórica 04</a></li><li class="chapter-item expanded "><a href="chapter_5.html" class="active"><strong aria-hidden="true">5.</strong> Teórica 05</a></li><li class="chapter-item expanded "><a href="chapter_6.html"><strong aria-hidden="true">6.</strong> Teórica 06</a></li><li class="chapter-item expanded "><a href="chapter_7.html"><strong aria-hidden="true">7.</strong> Teórica 07</a></li><li class="chapter-item expanded "><a href="chapter_8.html"><strong aria-hidden="true">8.</strong> Téorica 08</a></li><li class="chapter-item expanded "><a href="chapter_9.html"><strong aria-hidden="true">9.</strong> Teórica 09</a></li><li class="chapter-item expanded "><a href="chapter_10.html"><strong aria-hidden="true">10.</strong> Teórica 10</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Teóricas de DAA</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="teórica-05"><a class="header" href="#teórica-05">Teórica 05</a></h1>
+<h2 id="Árvores-de-decisão"><a class="header" href="#Árvores-de-decisão">Árvores de Decisão</a></h2>
+<ul>
+<li>Altamente instáveis;
+<ul>
+<li>A troca de um valor na árvore poderá implicar uma mudança em toda ela.</li>
+</ul>
+</li>
+<li>Podem ser:
+<ul>
+<li>Árvores de Classificação;</li>
+<li>Árvores de Regressão.</li>
+</ul>
+</li>
+<li>Por convenção, para a esquerda representa-se o verdadeiro e para a esquerda representa-se o falso.</li>
+</ul>
+<h3 id="Árvores-de-classificação"><a class="header" href="#Árvores-de-classificação">Árvores de Classificação</a></h3>
+<h4 id="medidas-de-impureza"><a class="header" href="#medidas-de-impureza">Medidas de Impureza</a></h4>
+<ul>
+<li>Impuridade de Gini;</li>
+<li>Entropia;</li>
+<li>Ganho de Informação.</li>
+</ul>
+<h5 id="impuridade-de-gini"><a class="header" href="#impuridade-de-gini">Impuridade de Gini</a></h5>
+<p>\[ G_{folha} = 1 - (P_{ac_{1}})^2 - (P_{ac_{2}})^2 - \cdots - (P_{ac_{N}})^2 \]</p>
+<p>\[ Total = medias\ pesadas\ da\ impureza\ de\ Gini\ nas\ folhas \]</p>
+<p><strong>Com atributos contínuos:</strong></p>
+<ol>
+<li>Pega-se no atributo contínuo e ordena-se de forma crescente;</li>
+<li>Calcula-se a média entre os valores adjacentes;</li>
+<li>Calcula-se a impureza para cada um dos valores médios calculados;</li>
+<li>O corte na construção da árvore deve ser feito no valor que apresentar o menor resultado de Gini.</li>
+</ol>
+<h4 id="construção-da-Árvore"><a class="header" href="#construção-da-Árvore">Construção da Árvore:</a></h4>
+<ol>
+<li>Calcular o resultado da impureza de Gini;</li>
+<li>Se o nodo tiver um resultado mais baixo, não se separa mais os nodos e esse torna-se folha da árvore;</li>
+<li>Caso contrário, escolhe-se a separação com o menor valor de impureza.</li>
+</ol>
+<h3 id="Árvores-de-regressão"><a class="header" href="#Árvores-de-regressão">Árvores de Regressão</a></h3>
+<p><strong>Método:</strong></p>
+<ol>
+<li>Para cada possível <em>threshold</em> calcula-se a média dos <em>samples</em> à direita e à esquerda, calculando-se, em seguida, a soma dos erros quadrados para cada <em>sample</em>;</li>
+<li>Seleciona-se o <em>threshold</em> com a menor soma dos erros quadrados para cada ramo;</li>
+<li>Quando o número de <em>samples</em> for menor que o valor pré-definido, então será uma folha com o valor igual à média das <em>samples</em>.</li>
+</ol>
+<p><strong>Com atributos múltiplos:</strong></p>
+<ol>
+<li>Calcula-se o mínimo da soma dos erros quadrados para cada atributo;</li>
+<li>Seleciona-se o atributo e o <em>threshold</em> com a menor soma dos erros quadrados para cada ramo;</li>
+<li>Quando o número de <em>samples</em> for menor que o valor pré-definido, então será uma folha com o valor igual à média das <em>samples</em>.</li>
+</ol>
+<h3 id="pruning"><a class="header" href="#pruning"><em>Pruning</em></a></h3>
+<ul>
+<li>Uma árvore de decisão irá caír sempre em <em>overfitting</em> se a deixarmos crescer até à sua máxima profundidade;</li>
+<li>Para evitar isto, podemos efetuar <em>pre-prunning</em> (parar o crescimento cedo) ou <em>post-prunning</em> (após o treino completo da árvore).</li>
+</ul>
+<h4 id="pre-prunning"><a class="header" href="#pre-prunning"><em>Pre-Prunning</em></a></h4>
+<ul>
+<li><code>min_sample_split</code> \( \rightarrow \) é o número mínimo de <em>samples</em> para cada <em>split</em>.</li>
+</ul>
+<pre><code class="language-py">min_samples_split_grid_search = GridSearchCV(
+    estimator=DecisionTreeClassifier(random_state=2020),
+    scoring=make_scorer(accuracy_scorer),
+    param_grid=ParameterGrid(
+        {&quot;min_samples_split&quot;:[[min_samples_split] for min_samples_split in np.arange(EPS, 1, 0.025)]}
+    ),
+)
+</code></pre>
+<ul>
+<li><code>min_sample_leaf</code> \( \rightarrow \) número mínimo de <em>samples</em> para ser uma folha.</li>
+</ul>
+<pre><code class="language-py">min_samples_split_grid_search = GridSearchCV(
+    estimator=DecisionTreeClassifier(random_state=2020),
+    scoring=make_scorer(accuracy_scorer),
+    param_grid=ParameterGrid(
+        {&quot;min_samples_leaf&quot;:[[min_samples_leaf] for min_samples_leaf in np.arange(0.000001, 1, 0.025)]}
+    ),
+)
+</code></pre>
+<h4 id="post-prunning"><a class="header" href="#post-prunning"><em>Post-Prunning</em></a></h4>
+<ul>
+<li>Define uma profundidade máxima para a árvore.</li>
+</ul>
+<pre><code class="language-py">full_tree = DecisionTreeClassifier(random_state=2020)
+full_tree.fit(x_train, y_train)
+
+print(full_tree.get_depth())
+print(full_tree.get_n_leaves())
+
+max_depth_grid_search = GridSearchCV(
+    estimator=DecisionTreeClassifier(random_state=2020),
+    scoring=make_scorer(accuracy_scorer),
+    param_grid=ParameterGrid(
+        {&quot;max_depth&quot;:[[max_depth] for max_depth in range(1, max_depth + 1)]}
+    ),
+)
+</code></pre>
+<ul>
+<li>O <em>prunning</em> inicia-se com uma árvore que não tenha sido <em>prunned</em>, utilizando uma sequência de sub-árvores (<em>prunned</em>), das quais escolhe a melhor através de um processo de <em>cross-validation</em>;</li>
+<li>O custo da complexidade deste processo é dado por:</li>
+</ul>
+<p>\[ R_{\alpha}(T_{t}) = R(T_{t}) + \alpha |T_t| \]</p>
+<p>ou</p>
+<p>\[ TreeScore_t = SSR + \alpha |T_t| \]</p>
+<p>onde \( R(T) \) representa o total do erro dos nós folhas, \( |T| \) representa o número de nós folhas e \( \alpha \) o parâmetro da complexidade.</p>
+<pre><code class="language-py">ccp_alphas = full_tree.cost_complexity_pruning_path(x_train, y_train)[&quot;ccp_alphas&quot;]
+ccp_alpha_grid_search = GridSearchCV(
+    estimator=DecisionTreeClassifier(random_state=42),
+    scoring=make_scorer(accuracy_scorer),
+    param_grid=ParameterGrid(
+        {&quot;ccp_alpha&quot;:[[alpha] for alpha in ccp_alphas]}
+    ),
+)
+</code></pre>
+<h3 id="conclusões-acerca-das-Árvores-de-decisão"><a class="header" href="#conclusões-acerca-das-Árvores-de-decisão">Conclusões acerca das Árvores de Decisão</a></h3>
+<p><strong>Forças:</strong></p>
+<ul>
+<li>Configuração simples (tem poucos parâmetros de configuração);</li>
+<li>Comparado a outros algoritmos, precisa de menos esforço da preparação dos dados durante o pré-processamento;</li>
+<li>Não precisa de normalização de dados;</li>
+<li>Não precisa de escalonamento dos dados;</li>
+<li><em>Missing values</em> não afeta o processo de construção de forma considerável;</li>
+<li>Muito intuitivo e fácil de explicar às equipas de técnicos e <em>stakeholders</em>.</li>
+</ul>
+<p><strong>Fraquezas:</strong></p>
+<ul>
+<li>Inadequada para problemas com várias interações entre atributos;</li>
+<li>Não evita réplicas de sub-árvores;</li>
+<li>Uma pequena mudança nos dados poderá provocar uma grande mudança na estrutura da árvore causando instabilidade;</li>
+<li>O cálculo poder ser muito complexo comparado a outros algoritmos;</li>
+<li>Pode precisar de muito tempo para treinar o modelo.</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="chapter_4.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="chapter_6.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="chapter_4.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="chapter_6.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>

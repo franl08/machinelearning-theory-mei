@@ -1,0 +1,428 @@
+<!DOCTYPE HTML>
+<html lang="pt" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Teórica 07 - Teóricas de DAA</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="chapter_1.html"><strong aria-hidden="true">1.</strong> Teórica 01</a></li><li class="chapter-item expanded "><a href="chapter_2.html"><strong aria-hidden="true">2.</strong> Teórica 02</a></li><li class="chapter-item expanded "><a href="chapter_3.html"><strong aria-hidden="true">3.</strong> Teórica 03</a></li><li class="chapter-item expanded "><a href="chapter_4.html"><strong aria-hidden="true">4.</strong> Teórica 04</a></li><li class="chapter-item expanded "><a href="chapter_5.html"><strong aria-hidden="true">5.</strong> Teórica 05</a></li><li class="chapter-item expanded "><a href="chapter_6.html"><strong aria-hidden="true">6.</strong> Teórica 06</a></li><li class="chapter-item expanded "><a href="chapter_7.html" class="active"><strong aria-hidden="true">7.</strong> Teórica 07</a></li><li class="chapter-item expanded "><a href="chapter_8.html"><strong aria-hidden="true">8.</strong> Téorica 08</a></li><li class="chapter-item expanded "><a href="chapter_9.html"><strong aria-hidden="true">9.</strong> Teórica 09</a></li><li class="chapter-item expanded "><a href="chapter_10.html"><strong aria-hidden="true">10.</strong> Teórica 10</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Teóricas de DAA</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="aprendizagem-não-supervisionada"><a class="header" href="#aprendizagem-não-supervisionada">Aprendizagem Não Supervisionada</a></h1>
+<h2 id="tarefas"><a class="header" href="#tarefas">Tarefas</a></h2>
+<ul>
+<li><strong>Redução da Dimensionalidade</strong>: deve reduzir o número de atributos de <em>input</em> num <em>dataset</em>;</li>
+<li><strong>Deteção de Anomalias</strong>: deve detetar instâncias diferentes da norma;</li>
+<li>*<em><strong>Clustering</strong></em>: deve agrupar instâncias semelhantes em <em>clusters</em>.</li>
+</ul>
+<h2 id="medidas-de-distância"><a class="header" href="#medidas-de-distância">Medidas de Distância</a></h2>
+<h3 id="medidas-de-semelhança"><a class="header" href="#medidas-de-semelhança">Medidas de Semelhança</a></h3>
+<ul>
+<li>Distância Euclidiana ou de Manhattan para atributos contínuos;</li>
+<li>Coeficiente de Jacqard para atributos discretos ou binários;</li>
+<li>etc...</li>
+</ul>
+<h2 id="algoritmos"><a class="header" href="#algoritmos">Algoritmos</a></h2>
+<ul>
+<li><strong>Redução de Dimensionalidade</strong>:
+<ul>
+<li><em>Principal Component Analysis</em> (PCA);</li>
+<li><em>Manifold Learning</em> - LLE, <em>Isomap</em>, t-SNE;</li>
+<li><em>Autoencoders</em>, etc...</li>
+</ul>
+</li>
+<li><strong>Deteção de Anomalias</strong>:
+<ul>
+<li><em>Isolation Forest</em>;</li>
+<li><em>Local Outlier Factor</em>;</li>
+<li><em>Minimum Covariance Determinant</em>;</li>
+<li>Outros algoritmos desenhados, inicialmente, para a redução da dimensionalidade ou aprendizagem supervisionada.</li>
+</ul>
+</li>
+<li><em><strong>Clustering</strong></em>:
+<ul>
+<li><em>K-Means</em>;</li>
+<li><em>Hierarchical Clustering</em> e <em>Spectral Clustering</em>;</li>
+<li>DBSCAN e OPTICS;</li>
+<li><em>Affinity Propagation</em>;</li>
+<li><em>Mean Shift</em> e BIRCH;</li>
+<li><em>Gaussian Mixture Models</em>.</li>
+</ul>
+</li>
+</ul>
+<h2 id="redução-da-dimensionalidade"><a class="header" href="#redução-da-dimensionalidade">Redução da Dimensionalidade</a></h2>
+<ul>
+<li>Aplicações destes algoritmos:
+<ul>
+<li><strong>Visualização de Dados e Análise de Dados</strong>: reduz o número de atributos de <em>input</em> para 2 ou 3 de forma a usar as técnicas de visualização de dados para obter informação sobre os dados;</li>
+<li><strong>Ferramenta Preparatória para Algoritmos de <em>Machine Learning</em></strong>: mais atributos de <em>input</em>, por vezes, tornam a tarefa de previsão do modelo mais difíceis. Visto que muitos algoritmos não funcionam bem com dados dispersos ou de elevadas dimensões, a aplicação deste algoritmo pode aumentar a qualidade dos modelos.</li>
+</ul>
+</li>
+<li>Os métodos são, geralmente, divididos em:
+<ul>
+<li><em>Feature Selection</em>: encontra um subconjunto dos atributos de <em>input</em>;</li>
+<li><em>Feature Projection</em> (ou <em>Feature Extraction</em>): encontra a projeção ótima dos dados originais em algum espaço de poucas dimensões.</li>
+</ul>
+</li>
+</ul>
+<h3 id="pca"><a class="header" href="#pca">PCA</a></h3>
+<p>Utiliza a projeção dos dados originais em componentes principais. Os componentes principais são vetores ortogonais que descrevem o máximo de variação residual.</p>
+<p>Devem-se seguir os seguintes passos:</p>
+<ol>
+<li><em>Standardizar</em> os dados;</li>
+<li>Construir uma matriz de correlação;</li>
+<li>Calcular os <em>eigenvectors</em>/<em>unit vectors</em> e <em>eigenvalues</em>. Os <em>eigenvalues</em> são escalares que podemos multiplicar com o <em>eigenvector</em> da matriz de correlação.</li>
+<li>Ordenar os <em>eigenvectors</em> do de maior ordem para o mais pequeno e calcular a percentagem da variação que cada PC tem;</li>
+<li>Selecionar o número de componentes. Desenhar um gráfico das somas acumuladas da variância e, em seguida, selecionar o número de componentes que explica a taxa de informação pretendida (geralmente, entre 80% ou 95%).</li>
+</ol>
+<p>Versões do PCA:</p>
+<ul>
+<li><em><strong>Incremental PCA</strong></em>: para aprendizagem <em>online</em>, quando os dados não cabem em memória;</li>
+<li><em><strong>Randomized PCA</strong></em>: algoritmo estocático que permite uma estimativa rápida dos primeiros \( N \) componentes;</li>
+<li><em><strong>Kernel PCA</strong></em>: truques de <em>kernel</em> permitem que sejam efetuadas projeções não lineares complexas.</li>
+</ul>
+<h3 id="mainfold-learning"><a class="header" href="#mainfold-learning"><em>Mainfold Learning</em></a></h3>
+<p>Baseados na conservação da distância medida.</p>
+<ul>
+<li><strong>LLE (<em>Locally Linear Embedding</em>)</strong> estuda as conexões lineares entre pontos de dados no espaço original e, em seguida, tenta movê-los para um espaço dimensional mais pequeno, enquanto que preserva os seus vizinhos. Existem muitas modificações a este algoritmo, como o MLLE e o HLLE, etc...</li>
+<li><em><strong>Isomap (Isometric Mapping)</strong></em> cria um gráfico conectando cada instância aos seus vizinhos mais próximos e, em seguida, reduz a dimensionalidade enquanto tenta manter a distância <em>geodesic</em> (distância entre dois vértices num gráfico) entre instâncias;</li>
+<li><em><strong>t-SNE (t-distributed Stochastic Neighbor Embedding)</strong></em> reduz a dimensionalidade mantendo a distância relativa entre pontos no espaço, assim mantém instâncias semelhantes perto umas das outras e as instâncias diferentes distantes. Maioritariamente, utiliza-se para a visualização de dados.</li>
+</ul>
+<h3 id="autoencoders"><a class="header" href="#autoencoders"><em>Autoencoders</em></a></h3>
+<p>Rede neuronal artificial que tenta manter os valores de <em>output</em> o mais semelhantes possível dos valores de <em>input</em> quando a estrutura de rede implica um gargalo (camada onde o número de neurónios é muito menor que na camada de <em>input</em>).</p>
+<p>Variações:</p>
+<ul>
+<li><em>Denoising Autoencoders</em> que podem ajudar a limpar imagens ou sons;</li>
+<li><em>Variational Autoencoders</em> que podem lidar com distribuições, ao invés de valores específicos;</li>
+<li><em>Convolutional Autoencoders</em> para imagens;</li>
+<li><em>Recurrent Autoencoders</em> para séries de tempo ou texto.</li>
+</ul>
+<h3 id="seleção-do-algoritmo"><a class="header" href="#seleção-do-algoritmo">Seleção do Algoritmo</a></h3>
+<p><img src="images/dimens_reduct_select.png" alt="image Etapas" /></p>
+<h2 id="deteção-de-anomalias"><a class="header" href="#deteção-de-anomalias">Deteção de Anomalias</a></h2>
+<p>Tarefa de detetar instâncias anormais (<em>outliers</em>) para:</p>
+<ul>
+<li><strong>Limpeza de Dados</strong>: remover <em>outliers</em> do <em>dataset</em> antes de treinar outro modelo;</li>
+<li><strong>Tarefas de Deteção de Anomalias</strong>: deteção de fraudes, deteção de produtos com defeito, etc...</li>
+</ul>
+<h3 id="abordagens"><a class="header" href="#abordagens">Abordagens</a></h3>
+<h4 id="estatísticas"><a class="header" href="#estatísticas">Estatísticas</a></h4>
+<ul>
+<li>Distâncias Interquartis;</li>
+<li><em>Turkey Method</em> para a deteção de <em>outliers</em>.</li>
+</ul>
+<h4 id="algoritmos-de-clustering-ou-de-redução-de-dimensão"><a class="header" href="#algoritmos-de-clustering-ou-de-redução-de-dimensão">Algoritmos de <em>Clustering</em> ou de Redução de Dimensão</a></h4>
+<ul>
+<li><em>Isolation Forest</em> e SVM (SVM de uma classe);</li>
+<li><em>Local Outlier Factor</em> (LOF) - baseado na assunção que as anormalidades estão localizadas em regiões de pouca densidade;</li>
+<li><em>Minimum Covariance Determinant</em> (MCD) - útil para a limpeza de dados. Assume que os <em>inliers</em> são gerados por uma distribuição Gaussiana singular e que os <em>outliers</em> não foram gerados por esta distribuição.</li>
+</ul>
+<h3 id="seleção-do-algoritmo-1"><a class="header" href="#seleção-do-algoritmo-1">Seleção do Algoritmo</a></h3>
+<p><img src="images/anomaly_det_select.png" alt="image Etapas" /></p>
+<h2 id="clustering"><a class="header" href="#clustering"><em>Clustering</em></a></h2>
+<p>Tarefa de agrupar uma população de pontos de dados não etiquetados em <em>clusters</em> de forma a que os pontos de dados num <em>cluster</em> sejam mais semelhantes entre si do que com pontos de outros <em>clusters</em>.</p>
+<p>Aplicações:</p>
+<ul>
+<li><em>Engines</em> de recomendações;</li>
+<li><em>Clustering</em> de artigos semelhantes;</li>
+<li>Imagem médica;</li>
+<li>Segmentação de imagens;</li>
+<li>Deteção de anomalias;</li>
+<li>Reconhecimento de padrões.</li>
+</ul>
+<p>Todos os algoritmos de <em>clustering</em> requerem o pré-processamento de dados (p.e. redução da dimensionalidade) e a sua <em>standardização</em>.</p>
+<h3 id="algoritmos-1"><a class="header" href="#algoritmos-1">Algoritmos</a></h3>
+<h4 id="k-means"><a class="header" href="#k-means"><em>K-Means</em></a></h4>
+<p>Baseado no conceito de centróide, sendo este o centro geométrico de um <em>cluster</em> (média das coordenadas de todos os pontos do <em>cluster</em>).</p>
+<p>Etapas:</p>
+<ol>
+<li>Centróides são inicializados de forma aleatória (existem outras técnicas de inicialização);</li>
+<li>Iterativamente, faz os seguintes passos, enquanto os centróides se vão movendo:</li>
+<li>Atualiza os <em>clusters</em> - fornece o <em>cluster</em> com o centróide mais próximo a cada ponto de dados;</li>
+<li>Atualiza os centróides dos <em>clusters</em> . calcula o novo valor da média dos elementos de cada <em>cluster</em> de forma a mover os centróides.</li>
+<li>Calcula a variação total.</li>
+</ol>
+<p><strong>Pontos Fortes</strong>:</p>
+<ul>
+<li>Simples e intuitivo;</li>
+<li>Escalável para grandes <em>datasets</em>;</li>
+<li>Como resultado, também teremos os centróides que podem ser utilizados como representantes dos <em>clusters standard</em>.</li>
+</ul>
+<p><strong>Pontos Fracos</strong>:</p>
+<ul>
+<li>Conhecimento acerca do número de <em>clusters</em> é necessário e deve ser especificado como parâmetro;</li>
+<li>Não lida bem com grandes números de atributos;</li>
+<li>Apenas separa bem os <em>clusters</em> de forma convexa e homogénea;</li>
+<li>Poderá fornecer más soluções locais, pelo que deve ser corrido múltiplas vezes.</li>
+</ul>
+<h4 id="elbow-method"><a class="header" href="#elbow-method"><em>Elbow Method</em></a></h4>
+<p>Heurística utiliza para determinar o número de <em>clusters</em> num <em>dataset</em>. O método consiste em dar <em>plot</em> da variação em função do número de <em>clusters</em> e escolher o &quot;<em>elbow</em>&quot; da curva como o número de <em>clusters</em> a utilizar. </p>
+<p>Pode utilizar-se o mesmo método para escolher o número de parâmetros em outros modelos orientados aos dados, tais como o número de componentes principais que descrevem um <em>dataset</em>.</p>
+<h4 id="hierarchical-clustering"><a class="header" href="#hierarchical-clustering"><em>Hierarchical Clustering</em></a></h4>
+<p>Família de algoritmos de <em>clustering</em> que controem uma hierarquia de <em>clusters</em> durante a análise:</p>
+<ul>
+<li>Inicia como tendo pontos como <em>clusters</em> individuais;</li>
+<li>A cada passo, ginta os pares de <em>clusters</em> mais próximos até restar apenas um ou \( K \) <em>clusters</em>.</li>
+</ul>
+<p><strong>Pontos Fortes</strong>:</p>
+<ul>
+<li>Simples e intuitivo;</li>
+<li>Funciona bem quando os dados têm uma estrutura hierárquica;</li>
+<li>Conhecimento acerca do número de <em>clusters</em> não é necessário.</li>
+</ul>
+<p><strong>Pontos Fracos</strong>:</p>
+<ul>
+<li>Precisa de análise adicional para escolher o número de <em>clusters</em> de resultado pretendidos;</li>
+<li>Apenas separa bem os <em>clusters</em> de forma convexa e homogénea;</li>
+<li>Algoritmo <em>greedy</em> que pode resultar em soluções locais fracas.</li>
+</ul>
+<h4 id="distância"><a class="header" href="#distância">Distância</a></h4>
+<ul>
+<li>Métodos para medir a distância entre dois <em>clusters</em>:
+<ul>
+<li><em><strong>Simple Linkage</strong></em>: distância mínimo entre elementos de cada <em>cluster</em>;</li>
+<li><em><strong>Complete Linkage</strong></em>: distância máxima entre elementos de cada <em>cluster</em>;</li>
+<li><em><strong>Average Linkage</strong></em>: distância média entre todos os pares de pontos;</li>
+<li><em><strong>Centroid Linkage</strong></em>: distância entre os centróides dos <em>clusters</em>;</li>
+<li><em><strong>Ward's Linkage</strong></em>: o aumento dentro da variância do <em>cluster</em> é o de menor grau (semelhança entre <em>clusters</em>).</li>
+</ul>
+</li>
+</ul>
+<h4 id="spectral-clustering"><a class="header" href="#spectral-clustering"><em>Spectral Clustering</em></a></h4>
+<p>Abordagem baseada na teoria de grafos e em álgebra linear. Utiliza o <em>spectrum</em> (conjunto de <em>eigenvalues</em>) da matriz de semelhança (contém a semalhança de cada par de pontos de dados) de forma a efetuar a redução da dimensionalidade. Em seguida, usa alguns algoritmos de <em>clustering</em> neste espaço de pouca dimensão.</p>
+<p><strong>Pontos Fortes</strong>:</p>
+<ul>
+<li>Pode detetar estruturas e formas de <em>clusters</em> complexas;</li>
+<li>Pode ser utilizado para procurar <em>clustes</em> em gráficos.</li>
+</ul>
+<p><strong>Pontos Fracos</strong>:</p>
+<ul>
+<li>Conhecimento acerca do número de <em>clusters</em> é necessário e deve ser especificado como parâmetro;</li>
+<li>Não lida bem com um grande número de instâncias;</li>
+<li>Não lida bem quando os <em>clusters</em> têm tamanhos muito diferentes.</li>
+</ul>
+<h4 id="dbscan"><a class="header" href="#dbscan">DBSCAN</a></h4>
+<p>Neste algoritmo, os <em>clustes</em> são regiões de grande densidade (em que os pontos de dados estão localizados próximos uns dos outros) separados por regiões de baixa densidade (onde os pontos estão localizados longe uns dos outros).</p>
+<p>O conceito central deste algoritmo é a ideia de um <em>core sample</em>, ou seja uma amostra numa área de grande densidade. O ponto A é considerado o <em>core sample</em> se, pelo menos <code>min_samples</code> de outras instâncias (geralmente, incluindo A) estão localizadas no máximo a <code>eps</code> de distância de A.</p>
+<p><strong>Pontos Fortes</strong>:</p>
+<ul>
+<li>Conhecimento acerca do número de <em>clusters</em> não é necessário;</li>
+<li>Resolve a tarefa de deteção de anomalias.</li>
+</ul>
+<p><strong>Pontos Fracos</strong>:</p>
+<ul>
+<li>Precisa de selecionar e dar <em>tune</em> ao parâmetro de densidade (<code>eps</code>);</li>
+<li>Não lida bem com dados dispersos.</li>
+</ul>
+<h4 id="affinity-propagation"><a class="header" href="#affinity-propagation"><em>Affinity Propagation</em></a></h4>
+<p>Baseado na ideia de passar mensagens entre os pontos de dados. Calcula a semelhança entre pares baseada em alguma função de distância e, em seguida, converge para o número de representativos <em>standard</em>, Um <em>dataset</em> é descrito utilizando um pequeno número de representativos <em>standard</em>, que sã́o identificados como as instâncias mais representativas de um dado <em>cluster</em>.</p>
+<p><strong>Pontos Fortes</strong>:</p>
+<ul>
+<li>Conhecimento acerca do número de <em>clusters</em> não é necessário;</li>
+<li>Como resultado, também se terá os representativos de um <em>cluster</em>. Ao contrário do <em>k-means</em>, estas instâncias não são apenas valores médios, mas sim objetos reais do <em>dataset</em>.</li>
+</ul>
+<p><strong>Pontos Fracos</strong>:</p>
+<ul>
+<li>Algoritmo lento devido à sua complexidade;</li>
+<li>Não lida bem com um grande número de instâncias;</li>
+<li>Apenas separa bem os <em>clusters</em> de forma convexa e homogénea.</li>
+</ul>
+<h4 id="mean-shift"><a class="header" href="#mean-shift"><em>Mean Shift</em></a></h4>
+<p>Inicialmente, coloca um círculo de um dado tamanho (o raio do círculo é um paràmetro e é denominado <em>bandwidth</em>) no centro de cada ponto de dados. Após isso, iterativamente calcula a média para cada círculo (a média das coordenadas dentro do ponto) e dá <em>shift</em> disso. Estes passos, denominados <em>mean-shift</em> são efetuados até o algoritmo convergir e os círculos pararem de se mover.</p>
+<p><strong>Pontos Fortes</strong>:</p>
+<ul>
+<li>Conhecimento acerca do número de <em>clusters</em> não é necessário;</li>
+<li>Só tem um híper-parâmetro; o raio dos círculos;</li>
+<li>Resolve a tarefa da estimativa da densidade e calcula os centróides dos <em>clusters</em>;</li>
+<li>Não encontra nenhum cluster que de facto não exista.</li>
+</ul>
+<p><strong>Pontos Fracos</strong>:</p>
+<ul>
+<li>Não lida bem com dados dispersos e com um grande número de atributos;</li>
+<li>Não lida bem com um grande número de instâncias;</li>
+<li>Não lida bem com <em>clusters</em> com formas complexas: tende a parti-los em pedaços mais pequenos.</li>
+</ul>
+<h4 id="birch"><a class="header" href="#birch">BIRCH</a></h4>
+<p><em>Balanced Iterative Reducing and Clustering using Hierarchies</em>. Algoritmo de hierarquia de <em>clusters</em> desenhado especialmente para grandes <em>datasets</em>. Durante o treino, cria um <em>dendrogram</em> que contém informação suficiente para, rapidamente, dar <em>assign</em> a novas instâncias de dados para um <em>cluster</em> sem guardar informação acerca de todas as instâncias em memória,</p>
+<p><strong>Pontos Fortes</strong>:</p>
+<ul>
+<li>Desenhado, especialmente, para <em>datasets</em> muito grandes;</li>
+<li>Apresenta a melhor qualidade para um dado conjunto de memória e recursos de tempo;</li>
+<li>Permite a implementação de <em>online clustering</em>.</li>
+</ul>
+<p><strong>Pontos Fracos</strong>:</p>
+<ul>
+<li>Não lida bem com um grande número de atributos.</li>
+</ul>
+<h4 id="seleção-de-algoritmo"><a class="header" href="#seleção-de-algoritmo">Seleção de Algoritmo</a></h4>
+<p>Esta tarefa é bastante difícil e tem uma grande variedade de aplicações, então é quase impossível contruir uma regra universal para a seleção do algoritmo de <em>clustering</em>, pois todos têm vantagens e desvantagens.</p>
+<p>As coisas começam a melhorar quando se fazem assunções acerca dos dados em mão, assim a análise de dados pode ajudar-nos a selecionar o algoritmo mais eficaz.</p>
+<p>Se o número de <em>clusters</em> for desconhecido, uma boa aproximação inicial é a raíz quadrada do número de objetos. Além disso, também se pode correr um algoritmo que não necessite esta informação e utilizar o seu resultado como ponto de partida para o número de <em>clusters</em> necessário.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="chapter_6.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="chapter_8.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="chapter_6.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="chapter_8.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>

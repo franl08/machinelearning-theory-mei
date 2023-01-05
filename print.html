@@ -1,0 +1,1570 @@
+<!DOCTYPE HTML>
+<html lang="pt" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Teóricas de DAA</title>
+        <meta name="robots" content="noindex" />
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="chapter_1.html"><strong aria-hidden="true">1.</strong> Teórica 01</a></li><li class="chapter-item expanded "><a href="chapter_2.html"><strong aria-hidden="true">2.</strong> Teórica 02</a></li><li class="chapter-item expanded "><a href="chapter_3.html"><strong aria-hidden="true">3.</strong> Teórica 03</a></li><li class="chapter-item expanded "><a href="chapter_4.html"><strong aria-hidden="true">4.</strong> Teórica 04</a></li><li class="chapter-item expanded "><a href="chapter_5.html"><strong aria-hidden="true">5.</strong> Teórica 05</a></li><li class="chapter-item expanded "><a href="chapter_6.html"><strong aria-hidden="true">6.</strong> Teórica 06</a></li><li class="chapter-item expanded "><a href="chapter_7.html"><strong aria-hidden="true">7.</strong> Teórica 07</a></li><li class="chapter-item expanded "><a href="chapter_8.html"><strong aria-hidden="true">8.</strong> Téorica 08</a></li><li class="chapter-item expanded "><a href="chapter_9.html"><strong aria-hidden="true">9.</strong> Teórica 09</a></li><li class="chapter-item expanded "><a href="chapter_10.html"><strong aria-hidden="true">10.</strong> Teórica 10</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Teóricas de DAA</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="teórica-01"><a class="header" href="#teórica-01">Teórica 01</a></h1>
+<p>Programa semelhante ao de DAA, no entanto, a prática é feita em <em>Jupyter</em>.</p>
+<h2 id="avaliação"><a class="header" href="#avaliação">Avaliação</a></h2>
+<ul>
+<li>Prova Escrita (40%)
+<ul>
+<li>Duração de 1 hora;</li>
+<li>Nota mínima de 8 valores;</li>
+<li>À base de correção de algoritmos e frases para completar.</li>
+</ul>
+</li>
+<li>Trabalho de Grupo (60%)
+<ul>
+<li>Com avaliação por pares;</li>
+<li>Na ferramenta que quisermos;</li>
+<li>Nota mínima de 10 valores.</li>
+</ul>
+</li>
+</ul>
+<p>As aulas práticas têm presenças e precisam que se tenha computador com <em>Jupyter</em>.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="teórica-02"><a class="header" href="#teórica-02">Teórica 02</a></h1>
+<h2 id="aprendizagem-automática-machine-learning-vs-ciência-de-dados-data-science"><a class="header" href="#aprendizagem-automática-machine-learning-vs-ciência-de-dados-data-science">Aprendizagem Automática (<em>Machine Learning</em>) <em>vs</em> Ciência de Dados (<em>Data Science</em>)</a></h2>
+<h3 id="machine-learning"><a class="header" href="#machine-learning"><em>Machine Learning</em></a></h3>
+<ul>
+<li>Utiliza dados;</li>
+<li>Tem como produto final um artefacto de <em>software</em>;</li>
+<li>Quem trabalha em ML são <em>Data Engineer</em>.</li>
+</ul>
+<h3 id="data-science"><a class="header" href="#data-science"><em>Data Science</em></a></h3>
+<ul>
+<li>Analisa conjuntos de dados;</li>
+<li>Tem como produto final apresentações e relatórios;</li>
+<li>Quem trabalha em DS são <em>Data Scientists</em>.</li>
+</ul>
+<h2 id="aprendizagem"><a class="header" href="#aprendizagem">Aprendizagem</a></h2>
+<ul>
+<li>Ganhar capacidades e conhecimentos;</li>
+<li>Criar uma linha de raciocínio para resolver problemas;</li>
+<li>Memorizar;</li>
+<li>Reconhecer erros;</li>
+<li>Corrigir erros;</li>
+<li>Imitar comportamentos.</li>
+</ul>
+<h2 id="aprendizagem-automática"><a class="header" href="#aprendizagem-automática">Aprendizagem Automática</a></h2>
+<p>Capacidade de aprender de modo autónomo e independente.</p>
+<p>Os algoritmos de <em>machine learning</em> são algoritmos orientados aos dados.</p>
+<h2 id="aprendizagem-simbólica-vs-aprendizagem-não-simbólica"><a class="header" href="#aprendizagem-simbólica-vs-aprendizagem-não-simbólica">Aprendizagem Simbólica <em>vs</em> Aprendizagem Não Simbólica</a></h2>
+<h3 id="aprendizagem-simbólica"><a class="header" href="#aprendizagem-simbólica">Aprendizagem Simbólica</a></h3>
+<ul>
+<li>É capaz de explicar as suas decisões;</li>
+<li>Não é capaz de dar resposta a alguns problemas, pois as regras e o conhecimento têm de ser codificados à mão;</li>
+<li>Está muito presa ao mundo académico e aos laboratórios universitários.</li>
+<li><strong>Exemplos</strong>: Baseado em Casos, Árvores de Decisão, etc...</li>
+</ul>
+<h3 id="aprendizagem-não-simbólica"><a class="header" href="#aprendizagem-não-simbólica">Aprendizagem Não Simbólica</a></h3>
+<ul>
+<li>Não é capaz de explicar as suas decisões;</li>
+<li>Apresenta melhores resultados que a AS;</li>
+<li>É, em geral, menos aceitável em decisões de alto risco.</li>
+<li><strong>Exemplos</strong>: Redes Neuronais Artificiais, Algoritmos Genéticos e Evolucionários, etc...</li>
+</ul>
+<h2 id="aprendizagem-supervisionada"><a class="header" href="#aprendizagem-supervisionada">Aprendizagem Supervisionada</a></h2>
+<ul>
+<li>Aprende com dados para os quais já sabe a resposta correta;</li>
+<li>A grande maioria dos algoritmos de ML utiliza este tipo de aprendizagem;</li>
+<li>Normalmente, são divididos em 2 categorias:
+<ul>
+<li><strong>Classificação</strong>: Apresenta os resultados em classes;</li>
+<li><strong>Regressão</strong>: Apresenta resultados em forma contínua.</li>
+</ul>
+</li>
+</ul>
+<h2 id="aprendizagem-não-supervisionada"><a class="header" href="#aprendizagem-não-supervisionada">Aprendizagem Não Supervisionada</a></h2>
+<ul>
+<li>Aprende com dados para os quais não se sabe a resposta certa;</li>
+<li>Tem como objetivo modelar a estrutura ou a distribuição dos dados do problema.</li>
+<li>Divide-se em 3 categorias:
+<ul>
+<li><strong>Segmentação (<em>clustering</em>)</strong>: Organização dos dados em grupos coerentes;</li>
+<li><strong>Redução (<em>reduction</em>)</strong>: Reduzir o número de características ou decompor o conjunto de dados em múltiplos componentes;</li>
+<li><strong>Associação</strong>: Procura regras que associem o comportamento demonstrado pelos dados.</li>
+</ul>
+</li>
+</ul>
+<h2 id="aprendizagem-por-reforço"><a class="header" href="#aprendizagem-por-reforço">Aprendizagem por Reforço</a></h2>
+<ul>
+<li>Utilizam técnicas de auto-alimentação de sinais com a noção de recompensa/penalização;</li>
+<li>Tem capacidade crítica sobre os próprios resultados produzidos pelo algoritmo;</li>
+<li>2 categorias:
+<ul>
+<li><em><strong>Q-Learning</strong></em>: Assume que se está a seguir uma política ótima e utiliza-a para atualização dos valores das ações;</li>
+<li><em><strong>SARSA</strong></em>: Considera a política de controlo que está a ser seguida e atualiza o valor das ações.</li>
+</ul>
+</li>
+</ul>
+<h2 id="metodologias"><a class="header" href="#metodologias">Metodologias</a></h2>
+<p>Existem duas grandes metodologias:</p>
+<ol>
+<li><strong>CRISP-DM</strong>;</li>
+<li><strong>SEMMA</strong>.</li>
+</ol>
+<h3 id="motivos-para-utilizar"><a class="header" href="#motivos-para-utilizar">Motivos para utilizar</a></h3>
+<ul>
+<li>Permite que os projetos sejam replicados;</li>
+<li>Apoia no planeamento e gestão do projeto;</li>
+<li>Incentiva as melhores práticas e ajuda a obter os melhores resultados.</li>
+</ul>
+<h3 id="semma"><a class="header" href="#semma"><em>SEMMA</em></a></h3>
+<p>Dividido em diversas etapas que funcionam de forma circular:</p>
+<ol>
+<li><em><strong>S</strong></em><em>ample</em>: Recolhe uma parte representativa dos dados;</li>
+<li><em><strong>E</strong></em><em>xplore</em>: Exploração e análise de dados;</li>
+<li><em><strong>M</strong></em><em>odify</em>: Engenharia e transformação de <em>features</em>;</li>
+<li><em><strong>M</strong></em><em>odel</em>: Conceção do modelo;</li>
+<li><em><strong>A</strong></em><em>ssess</em>: Avaliação do modelo.</li>
+</ol>
+<h3 id="crisp-dm"><a class="header" href="#crisp-dm"><em>CRISP-DM</em></a></h3>
+<p><img src="images/crispdm.png" alt="image CRISP-DM" /></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="teórica-03"><a class="header" href="#teórica-03">Teórica 03</a></h1>
+<h2 id="exploração-e-preparação-de-dados"><a class="header" href="#exploração-e-preparação-de-dados">Exploração e Preparação de Dados</a></h2>
+<p><strong>Problemas</strong>:</p>
+<ul>
+<li>Valores em falta;
+<ul>
+<li>Informação em falta porque não foi coletada ou é informação sensível;</li>
+<li>Atributos que não são aplicáveis para todos os elementos.</li>
+</ul>
+</li>
+<li>Registos Duplicados;
+<ul>
+<li>Os mesmos dados (ou dados semelhantes) colecionados em fontes diferentes</li>
+</ul>
+</li>
+<li>Ruído;
+<ul>
+<li>Modificação dos registos originais (dados corrompidos ou distorcidos) devido a limitações técnicas, erros de sensores ou erro humano.</li>
+</ul>
+</li>
+<li><em>Outliers</em>.
+<ul>
+<li>A ponto nos dados que difere de forma significativa das outras observações.</li>
+</ul>
+</li>
+</ul>
+<h2 id="porquê-preparar-os-dados"><a class="header" href="#porquê-preparar-os-dados">Porquê Preparar os Dados?</a></h2>
+<ul>
+<li>Compreender os dados e as suas características;</li>
+<li>Avaliar a qualidade dos dados;</li>
+<li>Encontrar padrões e informações relevantes.</li>
+</ul>
+<h2 id="como-preparar-os-dados"><a class="header" href="#como-preparar-os-dados">Como Preparar os Dados?</a></h2>
+<ul>
+<li><strong>Tendência Central</strong>: média, moda, mediana...</li>
+<li><strong>Dispersão Estatística</strong>: variância, desvio padrão, distância interquartil...</li>
+<li><strong>Distribuição Probabilística</strong>: gaussiana, uniforme, exponencial...</li>
+<li><strong>Correlação/Dependência</strong>: entre pares de características, com dependência de características...</li>
+<li><strong>Visualização de Dados</strong>: tabelas, gráficos, <em>boxplots</em>, <em>scatter plots</em>, histogramas...</li>
+</ul>
+<h2 id="matrizes-de-correlação"><a class="header" href="#matrizes-de-correlação">Matrizes de Correlação</a></h2>
+<p><img src="images/correl_matrix.png" alt="image Matrizes de Correlação" /></p>
+<ul>
+<li>Se a correlação entre atributos for alta \( \rightarrow \) não temos de ter ambos os atributos no modelo;</li>
+<li>Se a correlação com a variável que pretendemos estudar for alta \( \rightarrow \) devemos colocar a variável com alta correlação no modelo.</li>
+</ul>
+<h2 id="preparação-de-dados"><a class="header" href="#preparação-de-dados">Preparação de Dados</a></h2>
+<h3 id="prearação-básica"><a class="header" href="#prearação-básica">Prearação Básica</a></h3>
+<ul>
+<li>O <em>join</em> é uma operação que nos permite combinar dados de diferentes tabelas de forma diferente:</li>
+</ul>
+<p><img src="images/joins.png" alt="image Joins" /></p>
+<ul>
+<li>As seguintes técnicas podem ser utilizados:
+<ul>
+<li>Reunião/Interseção de colunas;</li>
+<li>Concatenação;</li>
+<li><em>Sorters</em>;</li>
+<li>Filtros (de coluna, de linha, nominais e baseados em regras, etc...);</li>
+<li>Agregações básicas (contagens, únicas, média/soma, etc...)</li>
+</ul>
+</li>
+</ul>
+<h3 id="preparação-avançada"><a class="header" href="#preparação-avançada">Preparação Avançada</a></h3>
+<p><strong>Como?</strong></p>
+<ul>
+<li><em>Feature Scaling</em>;</li>
+<li>Deteção de <em>Outliers</em>;</li>
+<li><em>Feature Selection</em>;</li>
+<li>Tratamento de <em>Missing Values</em>;</li>
+<li>Discretização de Valores Nominais;</li>
+<li><em>Binning</em>;</li>
+<li><em>Feature Engineering</em>.</li>
+</ul>
+<h4 id="feature-scaling"><a class="header" href="#feature-scaling"><em>Feature Scaling</em></a></h4>
+<ul>
+<li>Útil para casos e que a escala entre <em>features</em> é muito diferente;</li>
+<li>Normaliza os atributos de forma a reduzir a diferença entre atributos;</li>
+<li><strong>Técnicas</strong>:
+<ul>
+<li>Standardização: média de 0 e desvio padrão de 1;
+<ul>
+<li>deve utilizar-se quando a distribuição segue uma curva normal (em forma de sino).</li>
+</ul>
+</li>
+<li>Normalização: mete todos os valores entre 0 e 1 ou -1 e 1.
+<ul>
+<li>nos outros casos.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>NOTAS</strong></p>
+<ul>
+<li>Em geral, a standardização produz um melhor resultado;</li>
+<li>Não faz sentido normalizar ou standardizar a variável resultado (também chamada variável dependente ou <em>label</em>).</li>
+</ul>
+<h4 id="deteção-de-outliers"><a class="header" href="#deteção-de-outliers">Deteção de <em>Outliers</em></a></h4>
+<p><strong>Métodos</strong>:</p>
+<ul>
+<li>Estratégia Baseada em Estatísticas: <em>Z-Score</em>, <em>Box Plots</em>, ...</li>
+<li>Estratégia Baseada em Conhecimento: Baseada no conhecimento</li>
+<li>Estratégia Baseada em Modelos: Utiliza modelos como <em>one-class SVMs</em>, <em>isolation forests</em>, <em>clustering</em>, ...</li>
+</ul>
+<p><strong>Dilema</strong>: <em>Drop</em> ou <em>Cap</em>?</p>
+<ul>
+<li>Geralmente, depende do tamanho do <em>dataset</em>:
+<ul>
+<li>Se for muito grande: <em>Drop</em>;</li>
+<li>Caso contrário: <em>Cap</em>.</li>
+</ul>
+</li>
+</ul>
+<h4 id="feature-selection"><a class="header" href="#feature-selection"><em>Feature Selection</em></a></h4>
+<ul>
+<li>Reduz o número de atributos que o modelo terá de estudar;</li>
+<li>Geralmente, melhora o desempenho e diminui a complexidade;</li>
+<li>O que remover?
+<ul>
+<li>Atributos com elevada % de <em>missing values</em>;</li>
+<li>Teste do <em>chi-square</em> para ver dependências;</li>
+<li>Atributos com baixa variância;</li>
+<li>Atributos muito distorcidos;</li>
+<li>Atributos com grande correlação entre eles.</li>
+</ul>
+</li>
+<li><strong>Técnicas</strong>:
+<ul>
+<li>PCA (<em>Principal Component Analysis</em>);
+<ul>
+<li>Técnica para reduzir a dimensão do espaço de atributos. O objetivo é reduzir o número de atributos sem perder muita informação. Uma utilização popular é a visualização de dados de grandes dimensões;</li>
+</ul>
+</li>
+<li><em>Wrapper Methods</em>:
+<ul>
+<li>Utiliza um algoritmo de ML para selecionar os atributos mais importantes. Seleciona um conjunto de atributos como um problema de pesquisa, prepara diferentes combinações, avalia-as e compara-as. Mede a &quot;utilidade&quot; dos atributos baseando no classificador de <em>performance</em>.</li>
+</ul>
+</li>
+<li><em>Embedded Methods</em>: Algoritmos que já têm métodos de seleção <em>built-in</em>. </li>
+</ul>
+</li>
+</ul>
+<h4 id="missing-values"><a class="header" href="#missing-values"><em>Missing Values</em></a></h4>
+<p>Inicialmente, analisa cada atributo quanto ao número e percentagem de <em>missing values</em> e com base nisso decide o que fazer:</p>
+<ul>
+<li>Remover;</li>
+<li>Substituir pela média;</li>
+<li>Interpolar o valor;</li>
+<li>Mascarar o valor;</li>
+<li>...</li>
+</ul>
+<h4 id="discretizção-de-valores-nominais"><a class="header" href="#discretizção-de-valores-nominais">Discretizção de Valores Nominais</a></h4>
+<p>Dados categóricos, muitas vezes denominados dados nominais, são variáveis que contêm uma etiqueta associada ao invés de um valor numérico. Isto pode não ser desejável, então existem diverso métodos para passar as etiquetas para valores numéricos:</p>
+<ul>
+<li><em>One-Hot Encoding</em>:</li>
+</ul>
+<p><img src="images/onehotencoding.png" alt="image One Hot Encoding" /></p>
+<ul>
+<li><em>Label Encoding</em>:</li>
+</ul>
+<p><img src="images/labelencoding.png" alt="image Label Encoding" /></p>
+<ul>
+<li><em>Binary Encoding</em>:
+<ul>
+<li>Semelhante ao <em>Label Encoding</em>, mas com binário.
+<ul>
+<li>Permite uma noção mais fácil de ordem.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="binning-discretização"><a class="header" href="#binning-discretização"><em>Binning</em> (Discretização)</a></h4>
+<ul>
+<li>Grupos numéricos de dados divididos em intervalos.
+<ul>
+<li>Isto torna o modelo mais robusto e evita o <em>overfitting</em>;</li>
+<li>Penaliza a <em>performance</em> do modelo, visto que, sempre que se cria um intervalo sacrifica-se informação.</li>
+</ul>
+</li>
+</ul>
+<h4 id="feature-engineering"><a class="header" href="#feature-engineering"><em>Feature Engineering</em></a></h4>
+<ul>
+<li>Cria atributos a partir de outros atributos existentes;</li>
+<li>Tem por objetivo a melhoria da <em>performance</em> dos modelos de ML.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="teórica-04"><a class="header" href="#teórica-04">Teórica 04</a></h1>
+<h2 id="aprendizagem-supervisionada---regressão-linear-e-logística"><a class="header" href="#aprendizagem-supervisionada---regressão-linear-e-logística">Aprendizagem Supervisionada - Regressão Linear e Logística</a></h2>
+<h3 id="modelos-lineares"><a class="header" href="#modelos-lineares">Modelos Lineares</a></h3>
+<ul>
+<li>Caracterizadas pela simplicidade de cálculos e análises;</li>
+<li>Linearidade é definida nos termos de funções com as seguintes propriedades:
+<ul>
+<li>\( f(x+y)=f(x)+f(y) \);</li>
+<li>\( f(ax)=af(x) \).</li>
+</ul>
+</li>
+<li>Usada para classificação (seperação entre classes) e regressão;</li>
+<li>Não resolve problemas não-lineares.</li>
+</ul>
+<h3 id="regressão-linear"><a class="header" href="#regressão-linear">Regressão Linear</a></h3>
+<p>Tenciona prever o valor de saída \( Y \) baseado na variável de entrada \( X \).</p>
+<ul>
+<li>Enquandra uma linha reta num conjunto de dados de observações;</li>
+<li>Utiliza esta linha para prever valores não observados.</li>
+</ul>
+<h4 id="modelos-de-regressão-linear"><a class="header" href="#modelos-de-regressão-linear">Modelos de Regressão Linear</a></h4>
+<p>Representa a relação entre variáveis de entrada \( x_1,..., x_n \) e uma variável de saída \( y \).</p>
+<p>Previsão do modelo (para o i-ésimo modelo):</p>
+<ul>
+<li>
+<p>\( n \rightarrow \) número de atributos;</p>
+</li>
+<li>
+<p>\( \Theta \rightarrow \) parâmetros do modelo.<br />
+\[ ŷ_{(i)} = h_{\Theta}(x_{1}^{(i)},...,x_{n}^{(i)}) \]</p>
+</li>
+<li>
+<p><strong>Como funciona?</strong></p>
+<ul>
+<li>Geralmente, utiliza uma função de &quot;Custo por Erro/Perda&quot; e minimizar o seu valor (minimizar o erro quadrado entre cada ponto da linha).</li>
+</ul>
+</li>
+<li>
+<p><strong>Função do custo por erro/perda</strong>: MSE (<em>means square error</em>)</p>
+</li>
+<li>
+<p><strong>Objetivo</strong>: identificar os parâmetros do modelo de forma a minimizar o valor de J.</p>
+</li>
+</ul>
+<h4 id="múltipla-regressão-linear"><a class="header" href="#múltipla-regressão-linear">Múltipla Regressão Linear</a></h4>
+<ul>
+<li>Utilizada para determinar o efeito do número de variáveis independentes (\( x_1, x_2, ..., x_n \)) numa única variável dependente (\( y \)).</li>
+</ul>
+<h3 id="regressão-logística"><a class="header" href="#regressão-logística">Regressão Logística</a></h3>
+<ul>
+<li>Variável dependente discreta: problema de classificação;</li>
+<li>Utiliza modelos de regressão para classificação binária através da interpretação de modelos de <em>output</em> de forma a extraír a classe.</li>
+<li>O modelo é dado pela aplicação da <em>sigmoid</em> à função de regressão linear.</li>
+</ul>
+<h4 id="função-sigmoid"><a class="header" href="#função-sigmoid">Função <em>Sigmoid</em></a></h4>
+<ul>
+<li>Recebe qualquer valor e coloca o seu <em>output</em> entre 0 e 1;</li>
+<li>Isto provoca uma probabilidade entre 0 e 1 de permanecer a uma classe;</li>
+<li>Podemos definir um ponto de <em>threshold</em> em 0.5, definindo:
+<ul>
+<li>Baseado na probabilidade, é <em>assigned</em> a classe;</li>
+<li>Resultados previstos abaixo do <em>threshold</em> vão para a classe 0;</li>
+<li>Resultados previstos acima do <em>threshold</em> vão para a classe 1.</li>
+</ul>
+</li>
+</ul>
+<h4 id="múltiplas-classes"><a class="header" href="#múltiplas-classes">Múltiplas Classes</a></h4>
+<ul>
+<li>Pode ser aplicada para mais do que 2 classes;</li>
+<li>Neste caso, a estratégia é treinar o modelo &quot;binário&quot; para classe de forma separada;</li>
+<li>Cada modelo estima a probabilidade do exemplo pertencer à dada classe;</li>
+<li>Na altura de prever novos exemplos, cada modelo é aplicado escolhendo a classe da qual o valor previsto do modelo é maior.</li>
+</ul>
+<h4 id="função-de-erro"><a class="header" href="#função-de-erro">Função de erro:</a></h4>
+<p>Para cada exemplo \( x \):</p>
+<ul>
+<li>Se y = 1: \( -log(h_{\Theta}(x)) \);
+<ul>
+<li>Se a previsão for correta, <strong>o erro é zero</strong>;</li>
+<li>Caso contrário, quando se aproxima de 0, o erro tende para infinito.</li>
+</ul>
+</li>
+<li>Se y = 0 \( -log(1-h_{\Theta}(x)) \).
+<ul>
+<li>Se a previsão for correta, <strong>o erro é zero</strong>;</li>
+<li>Caso contrário, quando se aproxima de 1, o erro tende para infinita.</li>
+</ul>
+</li>
+</ul>
+<h2 id="estimativa-de-parâmetros"><a class="header" href="#estimativa-de-parâmetros">Estimativa de Parâmetros</a></h2>
+<h3 id="otimização"><a class="header" href="#otimização">Otimização</a></h3>
+<p>Conhecendo a estrutura do modelo: a estimativa de parâmetros é o problema de otimização numérica - minimização da função de erro.</p>
+<p>No caso de modelos lineares, o método dos mínimos quadrados podem ser utilizados, o que minimiza a função de erro (quadrado dos erros) ou o método iterativo.</p>
+<h3 id="método-dos-mínimos-quadrados"><a class="header" href="#método-dos-mínimos-quadrados">Método dos Mínimos Quadrados</a></h3>
+<p>Método analítico para determinar os valores ótimos que minimizam J.</p>
+<p>A complexidade computacional ao treinar um modelo utilizando este método é linear ao número de instâncias e atributos.</p>
+<h3 id="gradiente-descendente-para-regressão-linear"><a class="header" href="#gradiente-descendente-para-regressão-linear">Gradiente Descendente para Regressão Linear</a></h3>
+<p>Método que depende da função de erro ser diferenciável. Método iterativo em que cada iteração altera os valores de cada um dos parâmetros \( \Theta_{j} \)</p>
+<p>O parâmetro \( \alpha \) é a taxa de aprendizagem e controla a velocidade de atualização dos parâmetros.</p>
+<ul>
+<li>Baixos valores de \( \alpha \) garantem convergência mas podem ser mais lentos;</li>
+<li>Altos valores de \( \alpha \) podem trazer uma convergência rápida, mas tem o risco de divergência.</li>
+</ul>
+<h3 id="gradiente-descendente-vs-método-analítico"><a class="header" href="#gradiente-descendente-vs-método-analítico">Gradiente Descendente <em>vs</em> Método Analítico</a></h3>
+<ul>
+<li>MA garante a solução ótima, GD pode não convergir;</li>
+<li>No MA não existem parâmetros, GD pode demorar a convergir;</li>
+<li>MA pode tornar-se muito lento quando \( N \) for muito grande;</li>
+<li>Modelos genéricos de GD são aplicáveis para outros tipos de modelo.</li>
+</ul>
+<h3 id="métodos-avançados"><a class="header" href="#métodos-avançados">Métodos Avançados</a></h3>
+<p><img src="images/par_est_adv.png" alt="image Métodos Avançados" /></p>
+<h2 id="soluções-para-overfitting-modelos-funcionais"><a class="header" href="#soluções-para-overfitting-modelos-funcionais">Soluções Para <em>Overfitting</em>: Modelos Funcionais</a></h2>
+<ul>
+<li>Reduzir o número de atributos (coeficientes) utilizados;</li>
+<li>Selecionar atributos &quot;manualmente&quot; tendo por base o conhecimento do programa;</li>
+<li>Utilizar algoritmos de seleções de atributos;</li>
+<li>Regularização.
+<ul>
+<li>Manter todos os atributos mas tentar reduzir a magnitude dos valores dos parâmetros.</li>
+</ul>
+</li>
+</ul>
+<h2 id="standardização-e-normalização"><a class="header" href="#standardização-e-normalização">Standardização e Normalização</a></h2>
+<ul>
+<li>Tranformações nos dados são, por vezes, necessárias para os algoritmos de aprendizagem funcionarem melhor;</li>
+<li>Algoritmos de GD podem não ter um funcionamento correta com variáveis de escalas muito diferentes;</li>
+<li>Vários métodos possíveis:
+<ul>
+<li>Converter a média para 0 e o desvio padrão para 1;</li>
+<li>Converter os valores para um intervalo de 0 a 1 ou de -1 a 1, definindo os valores mínimos e máximos.</li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="teórica-05"><a class="header" href="#teórica-05">Teórica 05</a></h1>
+<h2 id="Árvores-de-decisão"><a class="header" href="#Árvores-de-decisão">Árvores de Decisão</a></h2>
+<ul>
+<li>Altamente instáveis;
+<ul>
+<li>A troca de um valor na árvore poderá implicar uma mudança em toda ela.</li>
+</ul>
+</li>
+<li>Podem ser:
+<ul>
+<li>Árvores de Classificação;</li>
+<li>Árvores de Regressão.</li>
+</ul>
+</li>
+<li>Por convenção, para a esquerda representa-se o verdadeiro e para a esquerda representa-se o falso.</li>
+</ul>
+<h3 id="Árvores-de-classificação"><a class="header" href="#Árvores-de-classificação">Árvores de Classificação</a></h3>
+<h4 id="medidas-de-impureza"><a class="header" href="#medidas-de-impureza">Medidas de Impureza</a></h4>
+<ul>
+<li>Impuridade de Gini;</li>
+<li>Entropia;</li>
+<li>Ganho de Informação.</li>
+</ul>
+<h5 id="impuridade-de-gini"><a class="header" href="#impuridade-de-gini">Impuridade de Gini</a></h5>
+<p>\[ G_{folha} = 1 - (P_{ac_{1}})^2 - (P_{ac_{2}})^2 - \cdots - (P_{ac_{N}})^2 \]</p>
+<p>\[ Total = medias\ pesadas\ da\ impureza\ de\ Gini\ nas\ folhas \]</p>
+<p><strong>Com atributos contínuos:</strong></p>
+<ol>
+<li>Pega-se no atributo contínuo e ordena-se de forma crescente;</li>
+<li>Calcula-se a média entre os valores adjacentes;</li>
+<li>Calcula-se a impureza para cada um dos valores médios calculados;</li>
+<li>O corte na construção da árvore deve ser feito no valor que apresentar o menor resultado de Gini.</li>
+</ol>
+<h4 id="construção-da-Árvore"><a class="header" href="#construção-da-Árvore">Construção da Árvore:</a></h4>
+<ol>
+<li>Calcular o resultado da impureza de Gini;</li>
+<li>Se o nodo tiver um resultado mais baixo, não se separa mais os nodos e esse torna-se folha da árvore;</li>
+<li>Caso contrário, escolhe-se a separação com o menor valor de impureza.</li>
+</ol>
+<h3 id="Árvores-de-regressão"><a class="header" href="#Árvores-de-regressão">Árvores de Regressão</a></h3>
+<p><strong>Método:</strong></p>
+<ol>
+<li>Para cada possível <em>threshold</em> calcula-se a média dos <em>samples</em> à direita e à esquerda, calculando-se, em seguida, a soma dos erros quadrados para cada <em>sample</em>;</li>
+<li>Seleciona-se o <em>threshold</em> com a menor soma dos erros quadrados para cada ramo;</li>
+<li>Quando o número de <em>samples</em> for menor que o valor pré-definido, então será uma folha com o valor igual à média das <em>samples</em>.</li>
+</ol>
+<p><strong>Com atributos múltiplos:</strong></p>
+<ol>
+<li>Calcula-se o mínimo da soma dos erros quadrados para cada atributo;</li>
+<li>Seleciona-se o atributo e o <em>threshold</em> com a menor soma dos erros quadrados para cada ramo;</li>
+<li>Quando o número de <em>samples</em> for menor que o valor pré-definido, então será uma folha com o valor igual à média das <em>samples</em>.</li>
+</ol>
+<h3 id="pruning"><a class="header" href="#pruning"><em>Pruning</em></a></h3>
+<ul>
+<li>Uma árvore de decisão irá caír sempre em <em>overfitting</em> se a deixarmos crescer até à sua máxima profundidade;</li>
+<li>Para evitar isto, podemos efetuar <em>pre-prunning</em> (parar o crescimento cedo) ou <em>post-prunning</em> (após o treino completo da árvore).</li>
+</ul>
+<h4 id="pre-prunning"><a class="header" href="#pre-prunning"><em>Pre-Prunning</em></a></h4>
+<ul>
+<li><code>min_sample_split</code> \( \rightarrow \) é o número mínimo de <em>samples</em> para cada <em>split</em>.</li>
+</ul>
+<pre><code class="language-py">min_samples_split_grid_search = GridSearchCV(
+    estimator=DecisionTreeClassifier(random_state=2020),
+    scoring=make_scorer(accuracy_scorer),
+    param_grid=ParameterGrid(
+        {&quot;min_samples_split&quot;:[[min_samples_split] for min_samples_split in np.arange(EPS, 1, 0.025)]}
+    ),
+)
+</code></pre>
+<ul>
+<li><code>min_sample_leaf</code> \( \rightarrow \) número mínimo de <em>samples</em> para ser uma folha.</li>
+</ul>
+<pre><code class="language-py">min_samples_split_grid_search = GridSearchCV(
+    estimator=DecisionTreeClassifier(random_state=2020),
+    scoring=make_scorer(accuracy_scorer),
+    param_grid=ParameterGrid(
+        {&quot;min_samples_leaf&quot;:[[min_samples_leaf] for min_samples_leaf in np.arange(0.000001, 1, 0.025)]}
+    ),
+)
+</code></pre>
+<h4 id="post-prunning"><a class="header" href="#post-prunning"><em>Post-Prunning</em></a></h4>
+<ul>
+<li>Define uma profundidade máxima para a árvore.</li>
+</ul>
+<pre><code class="language-py">full_tree = DecisionTreeClassifier(random_state=2020)
+full_tree.fit(x_train, y_train)
+
+print(full_tree.get_depth())
+print(full_tree.get_n_leaves())
+
+max_depth_grid_search = GridSearchCV(
+    estimator=DecisionTreeClassifier(random_state=2020),
+    scoring=make_scorer(accuracy_scorer),
+    param_grid=ParameterGrid(
+        {&quot;max_depth&quot;:[[max_depth] for max_depth in range(1, max_depth + 1)]}
+    ),
+)
+</code></pre>
+<ul>
+<li>O <em>prunning</em> inicia-se com uma árvore que não tenha sido <em>prunned</em>, utilizando uma sequência de sub-árvores (<em>prunned</em>), das quais escolhe a melhor através de um processo de <em>cross-validation</em>;</li>
+<li>O custo da complexidade deste processo é dado por:</li>
+</ul>
+<p>\[ R_{\alpha}(T_{t}) = R(T_{t}) + \alpha |T_t| \]</p>
+<p>ou</p>
+<p>\[ TreeScore_t = SSR + \alpha |T_t| \]</p>
+<p>onde \( R(T) \) representa o total do erro dos nós folhas, \( |T| \) representa o número de nós folhas e \( \alpha \) o parâmetro da complexidade.</p>
+<pre><code class="language-py">ccp_alphas = full_tree.cost_complexity_pruning_path(x_train, y_train)[&quot;ccp_alphas&quot;]
+ccp_alpha_grid_search = GridSearchCV(
+    estimator=DecisionTreeClassifier(random_state=42),
+    scoring=make_scorer(accuracy_scorer),
+    param_grid=ParameterGrid(
+        {&quot;ccp_alpha&quot;:[[alpha] for alpha in ccp_alphas]}
+    ),
+)
+</code></pre>
+<h3 id="conclusões-acerca-das-Árvores-de-decisão"><a class="header" href="#conclusões-acerca-das-Árvores-de-decisão">Conclusões acerca das Árvores de Decisão</a></h3>
+<p><strong>Forças:</strong></p>
+<ul>
+<li>Configuração simples (tem poucos parâmetros de configuração);</li>
+<li>Comparado a outros algoritmos, precisa de menos esforço da preparação dos dados durante o pré-processamento;</li>
+<li>Não precisa de normalização de dados;</li>
+<li>Não precisa de escalonamento dos dados;</li>
+<li><em>Missing values</em> não afeta o processo de construção de forma considerável;</li>
+<li>Muito intuitivo e fácil de explicar às equipas de técnicos e <em>stakeholders</em>.</li>
+</ul>
+<p><strong>Fraquezas:</strong></p>
+<ul>
+<li>Inadequada para problemas com várias interações entre atributos;</li>
+<li>Não evita réplicas de sub-árvores;</li>
+<li>Uma pequena mudança nos dados poderá provocar uma grande mudança na estrutura da árvore causando instabilidade;</li>
+<li>O cálculo poder ser muito complexo comparado a outros algoritmos;</li>
+<li>Pode precisar de muito tempo para treinar o modelo.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="máquinas-de-vetores-de-suporte"><a class="header" href="#máquinas-de-vetores-de-suporte">Máquinas de Vetores de Suporte</a></h1>
+<ul>
+<li>Algoritmo de <em>Machine Learning</em> supervisionado que pode ser utilizado para problemas de classificação (quase) e problemas de regressão;</li>
+<li>Geralmente, um algoritmode aprendizagem tenta aprender o máximo sobre as características comuns (o que diferencia uma classe de outra) de uma classe e a classificação será feita baseando-se nessas características representativas sobre as quais aprendeu (a classificação é baseada na diferença entre as classes). No entanto, as SVM trabalham de forma oposta, ou seja, procuram a similaridade entre classes e utiliza-as como &quot;vetores de suporte&quot;;</li>
+<li>A ideia principal é dar <em>plot</em> a cada item daos dados como um ponto num espaço \( n \)-dimensional (em que \( n \) é o número de atributos), fazendo a classificação a partir da descoberta de um híper-plano que diferencie as classes;</li>
+<li>Funciona bem para classifcar <em>datasets</em> com muitos atributos;</li>
+<li>Encontra vetores de suporte que dividem os dados;</li>
+<li>Aplica <em>kernels</em> de forma a representar os dados em espaços de vários dimensões para encontrar os híper-planos que podem não surgir em dimensões pequenas;</li>
+<li>Os híperlanos são barreiras de decisão que ajudam a classificar os pontos dos dados;</li>
+<li>Pontos que se encontrem em ambos os lados de um plano podem ser atribuídos a diferentes classes;</li>
+<li>A dimensão do híper-plano dependerá do número de atributos, ou seja, no caso de só termos 2 atributos, o híper-plano será uma linha, já no caso de termos 3 atributos, o híper-plano será um plano 2D.</li>
+</ul>
+<h2 id="como-funciona"><a class="header" href="#como-funciona">Como funciona?</a></h2>
+<ol>
+<li>Tem-se um conjunto de dados de treino etiquetado;</li>
+<li>Desenha-se um híper-plano que separe as classes;
+<ol>
+<li>Podendo desenhar vários, deve escolher-se aquele que maximize a margem entre classes;</li>
+<li>Os pontos presentes nas linhas de margem de cada classe são denominados de vetores de suporte.</li>
+</ol>
+</li>
+</ol>
+<h2 id="hinge-loss"><a class="header" href="#hinge-loss"><em>Hinge Loss</em></a></h2>
+<ul>
+<li>Pretendemos maximizar as margens entre os pontos dos dados e o híper-plano definido. Para isso, as SVMs utilizam a <em>hinge loss</em>:</li>
+</ul>
+<p>\[ l(y) = max(0, 1 - t \dot y) \]</p>
+<ul>
+<li>Isto irá:
+<ul>
+<li>Retornar 0 no caso do valor previsto e o valor real serem ambos positiovs, negativos ou nulos;</li>
+<li>Senão, irá calcular a perda.</li>
+</ul>
+</li>
+</ul>
+<h2 id="kernels"><a class="header" href="#kernels"><em>Kernels</em></a></h2>
+<ul>
+<li>Diferentes <em>Kernels</em> providenciam diferentes resultados para um dado <em>dataset</em>:
+<ul>
+<li><strong>Linear</strong>;</li>
+<li><em><strong>Gaussian Radial Basis Function</strong></em> (RBF);</li>
+<li><strong>Polinomial</strong>;</li>
+<li><strong>Sigmoidal</strong>.</li>
+</ul>
+</li>
+</ul>
+<h2 id="regularização"><a class="header" href="#regularização">Regularização</a></h2>
+<h3 id="baixa-regularização"><a class="header" href="#baixa-regularização">Baixa Regularização</a></h3>
+<p>O otimizador irá procurar por um híper-plano que tenha uma <strong>grande margem</strong>, mesmo que isso implique classificar mais pontos de forma errada.</p>
+<p><img src="images/svm_low_reg.png" alt="image Exemplo" /></p>
+<h3 id="alta-regularização"><a class="header" href="#alta-regularização">Alta Regularização</a></h3>
+<p>O otimizador irá escolher um híper-plano com uma menor margem, caso isso implque uma melhor classificação dos pontos.</p>
+<p><img src="images/svm_high_reg.png" alt="image Exemplo" /></p>
+<h2 id="gamma"><a class="header" href="#gamma"><em>Gamma</em></a></h2>
+<h3 id="gamma-baixo"><a class="header" href="#gamma-baixo"><em>Gamma</em> Baixo</a></h3>
+<p>Pontos longe do possível plano são considerados no cálculo do plano.</p>
+<p><img src="images/svm_low_gam.png" alt="image Exemplo" /></p>
+<h3 id="gamma-alto"><a class="header" href="#gamma-alto"><em>Gamma</em> Alto</a></h3>
+<p>Apenas os pontos perto do possível plano são considerados.</p>
+<p><img src="images/svm_high_gam.png" alt="image Exemplo" /></p>
+<h2 id="margem"><a class="header" href="#margem">Margem</a></h2>
+<h3 id="má-margem"><a class="header" href="#má-margem">Má Margem</a></h3>
+<p>Está demasiado perto de uma classe e distante da outra.</p>
+<h3 id="boa-margem"><a class="header" href="#boa-margem">Boa Margem</a></h3>
+<p>Está equidistante de ambas as classes.</p>
+<h2 id="pontos"><a class="header" href="#pontos">Pontos</a></h2>
+<h3 id="fortes"><a class="header" href="#fortes">Fortes</a></h3>
+<ul>
+<li>Muito efetivo em <em>datasets</em> com um grande conjunto de atributos (p.e. financeiros ou médicos);</li>
+<li>Efetivo nos casos em que o número de atributos é superior ao número de pontos de dados;</li>
+<li>Utiliza um subconjunto de pontos de treino na função de decisão dos vetores de suiporte que tem um consumo eficiente de memória;</li>
+<li>Funções de <em>kernel</em> diferentes podem ser especificadas para uma função de decisão (é possível utilizar <em>kernels</em> comuns, mas também se pode criar o próprio <em>kernel</em>).</li>
+</ul>
+<h3 id="fracos"><a class="header" href="#fracos">Fracos</a></h3>
+<ul>
+<li>Se o número de atributos for muito maior que o número de pontos, é crucial evitar o <em>overfitting</em> aquando da escolha da função de <em>kernel</em> e do termo de regularização;</li>
+<li>Não providenciam estimativas de probabilidades de forma direta. São calculadas utilizando um método caro de <em>n-fold cross-validation</em>;</li>
+<li>Trabalham melhor em conjuntos de amostras pequenos, devido ao elevado tempo de aprendizagem que requerem.</li>
+</ul>
+<h2 id="regressão-de-vetores-de-suporte"><a class="header" href="#regressão-de-vetores-de-suporte">Regressão de Vetores de Suporte</a></h2>
+<ul>
+<li>Algoritmo supervisionado para prever valores discretos;</li>
+<li>Usa os mesmos princípios que as SVMs;</li>
+<li>A ideia principal é encontrar a melhor linha de enquadramento, sendo que será aquela que tiver o número máximo de pontos nela;</li>
+<li>Basicamente, o objetivo passa por considerar os pontos que estão na linha fronteira de decisão.</li>
+</ul>
+<h3 id="pontos-1"><a class="header" href="#pontos-1">Pontos</a></h3>
+<h4 id="fortes-1"><a class="header" href="#fortes-1">Fortes</a></h4>
+<ul>
+<li>Robusto no tratamento de <em>outliers</em>;</li>
+<li>O modelo de decisão pode ser facilmente atualizado;</li>
+<li>Tem uma grande capacidade de generalização, com uma grande taxa de acerto;</li>
+<li>A sua implementação é fácil.</li>
+</ul>
+<h4 id="fracos-1"><a class="header" href="#fracos-1">Fracos</a></h4>
+<ul>
+<li>Não é aplicável em <em>datasets</em> grandes;</li>
+<li>Nos casos em que o número de atributos for maior para cada ponto de dados que o número de amostras de treino, o algoritmo terá um desempenho abaixo do esperado;</li>
+<li>O modelo de decisão não tem um bom comportamento quando o conjunto de dados tem algum ruído.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="aprendizagem-não-supervisionada-1"><a class="header" href="#aprendizagem-não-supervisionada-1">Aprendizagem Não Supervisionada</a></h1>
+<h2 id="tarefas"><a class="header" href="#tarefas">Tarefas</a></h2>
+<ul>
+<li><strong>Redução da Dimensionalidade</strong>: deve reduzir o número de atributos de <em>input</em> num <em>dataset</em>;</li>
+<li><strong>Deteção de Anomalias</strong>: deve detetar instâncias diferentes da norma;</li>
+<li>*<em><strong>Clustering</strong></em>: deve agrupar instâncias semelhantes em <em>clusters</em>.</li>
+</ul>
+<h2 id="medidas-de-distância"><a class="header" href="#medidas-de-distância">Medidas de Distância</a></h2>
+<h3 id="medidas-de-semelhança"><a class="header" href="#medidas-de-semelhança">Medidas de Semelhança</a></h3>
+<ul>
+<li>Distância Euclidiana ou de Manhattan para atributos contínuos;</li>
+<li>Coeficiente de Jacqard para atributos discretos ou binários;</li>
+<li>etc...</li>
+</ul>
+<h2 id="algoritmos"><a class="header" href="#algoritmos">Algoritmos</a></h2>
+<ul>
+<li><strong>Redução de Dimensionalidade</strong>:
+<ul>
+<li><em>Principal Component Analysis</em> (PCA);</li>
+<li><em>Manifold Learning</em> - LLE, <em>Isomap</em>, t-SNE;</li>
+<li><em>Autoencoders</em>, etc...</li>
+</ul>
+</li>
+<li><strong>Deteção de Anomalias</strong>:
+<ul>
+<li><em>Isolation Forest</em>;</li>
+<li><em>Local Outlier Factor</em>;</li>
+<li><em>Minimum Covariance Determinant</em>;</li>
+<li>Outros algoritmos desenhados, inicialmente, para a redução da dimensionalidade ou aprendizagem supervisionada.</li>
+</ul>
+</li>
+<li><em><strong>Clustering</strong></em>:
+<ul>
+<li><em>K-Means</em>;</li>
+<li><em>Hierarchical Clustering</em> e <em>Spectral Clustering</em>;</li>
+<li>DBSCAN e OPTICS;</li>
+<li><em>Affinity Propagation</em>;</li>
+<li><em>Mean Shift</em> e BIRCH;</li>
+<li><em>Gaussian Mixture Models</em>.</li>
+</ul>
+</li>
+</ul>
+<h2 id="redução-da-dimensionalidade"><a class="header" href="#redução-da-dimensionalidade">Redução da Dimensionalidade</a></h2>
+<ul>
+<li>Aplicações destes algoritmos:
+<ul>
+<li><strong>Visualização de Dados e Análise de Dados</strong>: reduz o número de atributos de <em>input</em> para 2 ou 3 de forma a usar as técnicas de visualização de dados para obter informação sobre os dados;</li>
+<li><strong>Ferramenta Preparatória para Algoritmos de <em>Machine Learning</em></strong>: mais atributos de <em>input</em>, por vezes, tornam a tarefa de previsão do modelo mais difíceis. Visto que muitos algoritmos não funcionam bem com dados dispersos ou de elevadas dimensões, a aplicação deste algoritmo pode aumentar a qualidade dos modelos.</li>
+</ul>
+</li>
+<li>Os métodos são, geralmente, divididos em:
+<ul>
+<li><em>Feature Selection</em>: encontra um subconjunto dos atributos de <em>input</em>;</li>
+<li><em>Feature Projection</em> (ou <em>Feature Extraction</em>): encontra a projeção ótima dos dados originais em algum espaço de poucas dimensões.</li>
+</ul>
+</li>
+</ul>
+<h3 id="pca"><a class="header" href="#pca">PCA</a></h3>
+<p>Utiliza a projeção dos dados originais em componentes principais. Os componentes principais são vetores ortogonais que descrevem o máximo de variação residual.</p>
+<p>Devem-se seguir os seguintes passos:</p>
+<ol>
+<li><em>Standardizar</em> os dados;</li>
+<li>Construir uma matriz de correlação;</li>
+<li>Calcular os <em>eigenvectors</em>/<em>unit vectors</em> e <em>eigenvalues</em>. Os <em>eigenvalues</em> são escalares que podemos multiplicar com o <em>eigenvector</em> da matriz de correlação.</li>
+<li>Ordenar os <em>eigenvectors</em> do de maior ordem para o mais pequeno e calcular a percentagem da variação que cada PC tem;</li>
+<li>Selecionar o número de componentes. Desenhar um gráfico das somas acumuladas da variância e, em seguida, selecionar o número de componentes que explica a taxa de informação pretendida (geralmente, entre 80% ou 95%).</li>
+</ol>
+<p>Versões do PCA:</p>
+<ul>
+<li><em><strong>Incremental PCA</strong></em>: para aprendizagem <em>online</em>, quando os dados não cabem em memória;</li>
+<li><em><strong>Randomized PCA</strong></em>: algoritmo estocático que permite uma estimativa rápida dos primeiros \( N \) componentes;</li>
+<li><em><strong>Kernel PCA</strong></em>: truques de <em>kernel</em> permitem que sejam efetuadas projeções não lineares complexas.</li>
+</ul>
+<h3 id="mainfold-learning"><a class="header" href="#mainfold-learning"><em>Mainfold Learning</em></a></h3>
+<p>Baseados na conservação da distância medida.</p>
+<ul>
+<li><strong>LLE (<em>Locally Linear Embedding</em>)</strong> estuda as conexões lineares entre pontos de dados no espaço original e, em seguida, tenta movê-los para um espaço dimensional mais pequeno, enquanto que preserva os seus vizinhos. Existem muitas modificações a este algoritmo, como o MLLE e o HLLE, etc...</li>
+<li><em><strong>Isomap (Isometric Mapping)</strong></em> cria um gráfico conectando cada instância aos seus vizinhos mais próximos e, em seguida, reduz a dimensionalidade enquanto tenta manter a distância <em>geodesic</em> (distância entre dois vértices num gráfico) entre instâncias;</li>
+<li><em><strong>t-SNE (t-distributed Stochastic Neighbor Embedding)</strong></em> reduz a dimensionalidade mantendo a distância relativa entre pontos no espaço, assim mantém instâncias semelhantes perto umas das outras e as instâncias diferentes distantes. Maioritariamente, utiliza-se para a visualização de dados.</li>
+</ul>
+<h3 id="autoencoders"><a class="header" href="#autoencoders"><em>Autoencoders</em></a></h3>
+<p>Rede neuronal artificial que tenta manter os valores de <em>output</em> o mais semelhantes possível dos valores de <em>input</em> quando a estrutura de rede implica um gargalo (camada onde o número de neurónios é muito menor que na camada de <em>input</em>).</p>
+<p>Variações:</p>
+<ul>
+<li><em>Denoising Autoencoders</em> que podem ajudar a limpar imagens ou sons;</li>
+<li><em>Variational Autoencoders</em> que podem lidar com distribuições, ao invés de valores específicos;</li>
+<li><em>Convolutional Autoencoders</em> para imagens;</li>
+<li><em>Recurrent Autoencoders</em> para séries de tempo ou texto.</li>
+</ul>
+<h3 id="seleção-do-algoritmo"><a class="header" href="#seleção-do-algoritmo">Seleção do Algoritmo</a></h3>
+<p><img src="images/dimens_reduct_select.png" alt="image Etapas" /></p>
+<h2 id="deteção-de-anomalias"><a class="header" href="#deteção-de-anomalias">Deteção de Anomalias</a></h2>
+<p>Tarefa de detetar instâncias anormais (<em>outliers</em>) para:</p>
+<ul>
+<li><strong>Limpeza de Dados</strong>: remover <em>outliers</em> do <em>dataset</em> antes de treinar outro modelo;</li>
+<li><strong>Tarefas de Deteção de Anomalias</strong>: deteção de fraudes, deteção de produtos com defeito, etc...</li>
+</ul>
+<h3 id="abordagens"><a class="header" href="#abordagens">Abordagens</a></h3>
+<h4 id="estatísticas"><a class="header" href="#estatísticas">Estatísticas</a></h4>
+<ul>
+<li>Distâncias Interquartis;</li>
+<li><em>Turkey Method</em> para a deteção de <em>outliers</em>.</li>
+</ul>
+<h4 id="algoritmos-de-clustering-ou-de-redução-de-dimensão"><a class="header" href="#algoritmos-de-clustering-ou-de-redução-de-dimensão">Algoritmos de <em>Clustering</em> ou de Redução de Dimensão</a></h4>
+<ul>
+<li><em>Isolation Forest</em> e SVM (SVM de uma classe);</li>
+<li><em>Local Outlier Factor</em> (LOF) - baseado na assunção que as anormalidades estão localizadas em regiões de pouca densidade;</li>
+<li><em>Minimum Covariance Determinant</em> (MCD) - útil para a limpeza de dados. Assume que os <em>inliers</em> são gerados por uma distribuição Gaussiana singular e que os <em>outliers</em> não foram gerados por esta distribuição.</li>
+</ul>
+<h3 id="seleção-do-algoritmo-1"><a class="header" href="#seleção-do-algoritmo-1">Seleção do Algoritmo</a></h3>
+<p><img src="images/anomaly_det_select.png" alt="image Etapas" /></p>
+<h2 id="clustering"><a class="header" href="#clustering"><em>Clustering</em></a></h2>
+<p>Tarefa de agrupar uma população de pontos de dados não etiquetados em <em>clusters</em> de forma a que os pontos de dados num <em>cluster</em> sejam mais semelhantes entre si do que com pontos de outros <em>clusters</em>.</p>
+<p>Aplicações:</p>
+<ul>
+<li><em>Engines</em> de recomendações;</li>
+<li><em>Clustering</em> de artigos semelhantes;</li>
+<li>Imagem médica;</li>
+<li>Segmentação de imagens;</li>
+<li>Deteção de anomalias;</li>
+<li>Reconhecimento de padrões.</li>
+</ul>
+<p>Todos os algoritmos de <em>clustering</em> requerem o pré-processamento de dados (p.e. redução da dimensionalidade) e a sua <em>standardização</em>.</p>
+<h3 id="algoritmos-1"><a class="header" href="#algoritmos-1">Algoritmos</a></h3>
+<h4 id="k-means"><a class="header" href="#k-means"><em>K-Means</em></a></h4>
+<p>Baseado no conceito de centróide, sendo este o centro geométrico de um <em>cluster</em> (média das coordenadas de todos os pontos do <em>cluster</em>).</p>
+<p>Etapas:</p>
+<ol>
+<li>Centróides são inicializados de forma aleatória (existem outras técnicas de inicialização);</li>
+<li>Iterativamente, faz os seguintes passos, enquanto os centróides se vão movendo:</li>
+<li>Atualiza os <em>clusters</em> - fornece o <em>cluster</em> com o centróide mais próximo a cada ponto de dados;</li>
+<li>Atualiza os centróides dos <em>clusters</em> . calcula o novo valor da média dos elementos de cada <em>cluster</em> de forma a mover os centróides.</li>
+<li>Calcula a variação total.</li>
+</ol>
+<p><strong>Pontos Fortes</strong>:</p>
+<ul>
+<li>Simples e intuitivo;</li>
+<li>Escalável para grandes <em>datasets</em>;</li>
+<li>Como resultado, também teremos os centróides que podem ser utilizados como representantes dos <em>clusters standard</em>.</li>
+</ul>
+<p><strong>Pontos Fracos</strong>:</p>
+<ul>
+<li>Conhecimento acerca do número de <em>clusters</em> é necessário e deve ser especificado como parâmetro;</li>
+<li>Não lida bem com grandes números de atributos;</li>
+<li>Apenas separa bem os <em>clusters</em> de forma convexa e homogénea;</li>
+<li>Poderá fornecer más soluções locais, pelo que deve ser corrido múltiplas vezes.</li>
+</ul>
+<h4 id="elbow-method"><a class="header" href="#elbow-method"><em>Elbow Method</em></a></h4>
+<p>Heurística utiliza para determinar o número de <em>clusters</em> num <em>dataset</em>. O método consiste em dar <em>plot</em> da variação em função do número de <em>clusters</em> e escolher o &quot;<em>elbow</em>&quot; da curva como o número de <em>clusters</em> a utilizar. </p>
+<p>Pode utilizar-se o mesmo método para escolher o número de parâmetros em outros modelos orientados aos dados, tais como o número de componentes principais que descrevem um <em>dataset</em>.</p>
+<h4 id="hierarchical-clustering"><a class="header" href="#hierarchical-clustering"><em>Hierarchical Clustering</em></a></h4>
+<p>Família de algoritmos de <em>clustering</em> que controem uma hierarquia de <em>clusters</em> durante a análise:</p>
+<ul>
+<li>Inicia como tendo pontos como <em>clusters</em> individuais;</li>
+<li>A cada passo, ginta os pares de <em>clusters</em> mais próximos até restar apenas um ou \( K \) <em>clusters</em>.</li>
+</ul>
+<p><strong>Pontos Fortes</strong>:</p>
+<ul>
+<li>Simples e intuitivo;</li>
+<li>Funciona bem quando os dados têm uma estrutura hierárquica;</li>
+<li>Conhecimento acerca do número de <em>clusters</em> não é necessário.</li>
+</ul>
+<p><strong>Pontos Fracos</strong>:</p>
+<ul>
+<li>Precisa de análise adicional para escolher o número de <em>clusters</em> de resultado pretendidos;</li>
+<li>Apenas separa bem os <em>clusters</em> de forma convexa e homogénea;</li>
+<li>Algoritmo <em>greedy</em> que pode resultar em soluções locais fracas.</li>
+</ul>
+<h4 id="distância"><a class="header" href="#distância">Distância</a></h4>
+<ul>
+<li>Métodos para medir a distância entre dois <em>clusters</em>:
+<ul>
+<li><em><strong>Simple Linkage</strong></em>: distância mínimo entre elementos de cada <em>cluster</em>;</li>
+<li><em><strong>Complete Linkage</strong></em>: distância máxima entre elementos de cada <em>cluster</em>;</li>
+<li><em><strong>Average Linkage</strong></em>: distância média entre todos os pares de pontos;</li>
+<li><em><strong>Centroid Linkage</strong></em>: distância entre os centróides dos <em>clusters</em>;</li>
+<li><em><strong>Ward's Linkage</strong></em>: o aumento dentro da variância do <em>cluster</em> é o de menor grau (semelhança entre <em>clusters</em>).</li>
+</ul>
+</li>
+</ul>
+<h4 id="spectral-clustering"><a class="header" href="#spectral-clustering"><em>Spectral Clustering</em></a></h4>
+<p>Abordagem baseada na teoria de grafos e em álgebra linear. Utiliza o <em>spectrum</em> (conjunto de <em>eigenvalues</em>) da matriz de semelhança (contém a semalhança de cada par de pontos de dados) de forma a efetuar a redução da dimensionalidade. Em seguida, usa alguns algoritmos de <em>clustering</em> neste espaço de pouca dimensão.</p>
+<p><strong>Pontos Fortes</strong>:</p>
+<ul>
+<li>Pode detetar estruturas e formas de <em>clusters</em> complexas;</li>
+<li>Pode ser utilizado para procurar <em>clustes</em> em gráficos.</li>
+</ul>
+<p><strong>Pontos Fracos</strong>:</p>
+<ul>
+<li>Conhecimento acerca do número de <em>clusters</em> é necessário e deve ser especificado como parâmetro;</li>
+<li>Não lida bem com um grande número de instâncias;</li>
+<li>Não lida bem quando os <em>clusters</em> têm tamanhos muito diferentes.</li>
+</ul>
+<h4 id="dbscan"><a class="header" href="#dbscan">DBSCAN</a></h4>
+<p>Neste algoritmo, os <em>clustes</em> são regiões de grande densidade (em que os pontos de dados estão localizados próximos uns dos outros) separados por regiões de baixa densidade (onde os pontos estão localizados longe uns dos outros).</p>
+<p>O conceito central deste algoritmo é a ideia de um <em>core sample</em>, ou seja uma amostra numa área de grande densidade. O ponto A é considerado o <em>core sample</em> se, pelo menos <code>min_samples</code> de outras instâncias (geralmente, incluindo A) estão localizadas no máximo a <code>eps</code> de distância de A.</p>
+<p><strong>Pontos Fortes</strong>:</p>
+<ul>
+<li>Conhecimento acerca do número de <em>clusters</em> não é necessário;</li>
+<li>Resolve a tarefa de deteção de anomalias.</li>
+</ul>
+<p><strong>Pontos Fracos</strong>:</p>
+<ul>
+<li>Precisa de selecionar e dar <em>tune</em> ao parâmetro de densidade (<code>eps</code>);</li>
+<li>Não lida bem com dados dispersos.</li>
+</ul>
+<h4 id="affinity-propagation"><a class="header" href="#affinity-propagation"><em>Affinity Propagation</em></a></h4>
+<p>Baseado na ideia de passar mensagens entre os pontos de dados. Calcula a semelhança entre pares baseada em alguma função de distância e, em seguida, converge para o número de representativos <em>standard</em>, Um <em>dataset</em> é descrito utilizando um pequeno número de representativos <em>standard</em>, que sã́o identificados como as instâncias mais representativas de um dado <em>cluster</em>.</p>
+<p><strong>Pontos Fortes</strong>:</p>
+<ul>
+<li>Conhecimento acerca do número de <em>clusters</em> não é necessário;</li>
+<li>Como resultado, também se terá os representativos de um <em>cluster</em>. Ao contrário do <em>k-means</em>, estas instâncias não são apenas valores médios, mas sim objetos reais do <em>dataset</em>.</li>
+</ul>
+<p><strong>Pontos Fracos</strong>:</p>
+<ul>
+<li>Algoritmo lento devido à sua complexidade;</li>
+<li>Não lida bem com um grande número de instâncias;</li>
+<li>Apenas separa bem os <em>clusters</em> de forma convexa e homogénea.</li>
+</ul>
+<h4 id="mean-shift"><a class="header" href="#mean-shift"><em>Mean Shift</em></a></h4>
+<p>Inicialmente, coloca um círculo de um dado tamanho (o raio do círculo é um paràmetro e é denominado <em>bandwidth</em>) no centro de cada ponto de dados. Após isso, iterativamente calcula a média para cada círculo (a média das coordenadas dentro do ponto) e dá <em>shift</em> disso. Estes passos, denominados <em>mean-shift</em> são efetuados até o algoritmo convergir e os círculos pararem de se mover.</p>
+<p><strong>Pontos Fortes</strong>:</p>
+<ul>
+<li>Conhecimento acerca do número de <em>clusters</em> não é necessário;</li>
+<li>Só tem um híper-parâmetro; o raio dos círculos;</li>
+<li>Resolve a tarefa da estimativa da densidade e calcula os centróides dos <em>clusters</em>;</li>
+<li>Não encontra nenhum cluster que de facto não exista.</li>
+</ul>
+<p><strong>Pontos Fracos</strong>:</p>
+<ul>
+<li>Não lida bem com dados dispersos e com um grande número de atributos;</li>
+<li>Não lida bem com um grande número de instâncias;</li>
+<li>Não lida bem com <em>clusters</em> com formas complexas: tende a parti-los em pedaços mais pequenos.</li>
+</ul>
+<h4 id="birch"><a class="header" href="#birch">BIRCH</a></h4>
+<p><em>Balanced Iterative Reducing and Clustering using Hierarchies</em>. Algoritmo de hierarquia de <em>clusters</em> desenhado especialmente para grandes <em>datasets</em>. Durante o treino, cria um <em>dendrogram</em> que contém informação suficiente para, rapidamente, dar <em>assign</em> a novas instâncias de dados para um <em>cluster</em> sem guardar informação acerca de todas as instâncias em memória,</p>
+<p><strong>Pontos Fortes</strong>:</p>
+<ul>
+<li>Desenhado, especialmente, para <em>datasets</em> muito grandes;</li>
+<li>Apresenta a melhor qualidade para um dado conjunto de memória e recursos de tempo;</li>
+<li>Permite a implementação de <em>online clustering</em>.</li>
+</ul>
+<p><strong>Pontos Fracos</strong>:</p>
+<ul>
+<li>Não lida bem com um grande número de atributos.</li>
+</ul>
+<h4 id="seleção-de-algoritmo"><a class="header" href="#seleção-de-algoritmo">Seleção de Algoritmo</a></h4>
+<p>Esta tarefa é bastante difícil e tem uma grande variedade de aplicações, então é quase impossível contruir uma regra universal para a seleção do algoritmo de <em>clustering</em>, pois todos têm vantagens e desvantagens.</p>
+<p>As coisas começam a melhorar quando se fazem assunções acerca dos dados em mão, assim a análise de dados pode ajudar-nos a selecionar o algoritmo mais eficaz.</p>
+<p>Se o número de <em>clusters</em> for desconhecido, uma boa aproximação inicial é a raíz quadrada do número de objetos. Além disso, também se pode correr um algoritmo que não necessite esta informação e utilizar o seu resultado como ponto de partida para o número de <em>clusters</em> necessário.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="redes-neuronais-artificiais"><a class="header" href="#redes-neuronais-artificiais">Redes Neuronais Artificiais</a></h1>
+<ul>
+<li>São modelos de <em>machine learning</em> que funcionam de forma análoga ao cérebro humano. É um processador paralelo composto por nodos de processamento singulares (neurónios);</li>
+<li>O conhecimento é guardado em conexões entre os neurónios;</li>
+<li>O conhecimento é obtido de um ambiente (dados), através de um processo de aprendizagem (algoritmo de treino) que ajustam os parâmetros da rede;</li>
+</ul>
+<h2 id="benefíciosrazões-para-o-sucesso"><a class="header" href="#benefíciosrazões-para-o-sucesso">Benefícios/Razões para o Sucesso</a></h2>
+<ul>
+<li><strong>Aprendizagem/Generalização</strong>: permite a obtenção de novo conhecimento do ambiente;</li>
+<li><strong>Processamento paralelo massivo</strong>: permite que tarefas complexas sejam efetuadas num curto espaço de tempo;</li>
+<li><strong>Não linear</strong>: útil para muitos problemas reais;</li>
+<li><strong>Adaptabilidade</strong>: podem adaptar a sua topologia de acordo com as mudanças no ambiente;</li>
+<li><strong>Robustez e degradação suave</strong>: disponível para ignorar ruído e atributos irrelevantes, capaz de lidar com informação em falta de forma eficiente;</li>
+<li><strong>Flexibilidade</strong>: tem um grande domínio de aplicabilidade;</li>
+<li><strong>Usabilidade</strong>: pode ser utilizada como &quot;<em>black boxes</em>&quot;, não precisa de conhecimento explícito acerca da função a aprender.</li>
+</ul>
+<h2 id="tipos-comuns-de-aplicação"><a class="header" href="#tipos-comuns-de-aplicação">Tipos Comuns de Aplicação</a></h2>
+<ul>
+<li>Memória Associativa;</li>
+<li>Classificação/Diagnóstico;</li>
+<li>Reconhecimento de padrões;</li>
+<li>Regressão;</li>
+<li>Controlo;</li>
+<li>Otimização;</li>
+<li>Filtragem de dados/compressão;</li>
+<li>etc...</li>
+</ul>
+<h2 id="neurónios-artificiais"><a class="header" href="#neurónios-artificiais">Neurónios Artificiais</a></h2>
+<ul>
+<li>Recebem um conjunto de <em>inputs</em>, dados ou conexões (\( x_i \));</li>
+<li>Têm um peso (valor numérico) associado a cada conexão (\( w_i \));</li>
+<li>Cada neurónio calcula a sua ativação baseado nos valores de <em>input</em> e dos pesos das conexões;</li>
+<li>O sinal calculado é passado para o <em>output</em> após ser filtrada pela função de ativação (\( f() \)).</li>
+</ul>
+<p><img src="images/nodes.png" alt="image Neurónios Artificiais" /></p>
+<h2 id="funções-de-ativação"><a class="header" href="#funções-de-ativação">Funções de Ativação</a></h2>
+<ul>
+<li><em>Sigmoid</em>/Logística;</li>
+<li>Linear;</li>
+<li>Tangente hiperbólica (<em>Tanh</em>);</li>
+<li>Gaussiana;</li>
+<li>ReIU (<em>linear rectified</em>). </li>
+</ul>
+<p><img src="images/activation_functions.png" alt="image Funções de Ativação" /></p>
+<h2 id="arquiteturas-de-redes-topologias"><a class="header" href="#arquiteturas-de-redes-topologias">Arquiteturas de Redes (topologias)</a></h2>
+<ul>
+<li>Forma como os nodos se encontram interconectados numa rede estruturada;</li>
+<li>Existem múltiplos tipos de arquiteturas, cada uma com o seu próprio potencial, tendo duas categorias: <strong>supervisionadas</strong> e <strong>não supervisionadas</strong>.</li>
+</ul>
+<h2 id="topologia-feedforward"><a class="header" href="#topologia-feedforward">Topologia <em>Feedforward</em></a></h2>
+<ul>
+<li><em><strong>Multilayer Perceptron (MLP)</strong></em> - <em>Feedforward</em> totalmente conectado numa rede neuronal com múltiplas camadas intermédias.</li>
+</ul>
+<p><img src="images/feedforward_topology.png" alt="image Topologia Feedforward" /></p>
+<h2 id="problemas-de-classificação"><a class="header" href="#problemas-de-classificação">Problemas de Classificação</a></h2>
+<p>Se usarmos modelos funcionais para para problemas de classificação, então teremos de converter os <em>outputs</em> do modelo (valores numéricos) nos valores desejados pelo atributo de <em>output</em> (nominais), isto é, em classes expectáveis.</p>
+<p>Podemos escolher entre duas hipóteses: um neurónio a dividir o domínio ou <em>1-of-C</em>/<em>one-hot encoding</em>.</p>
+<p>No último aso, teremos \( M \) <em>outputs</em> numéricos (1 por classe) e a classe correspondente ao maior valor é, geralmente, escolhida.</p>
+<p>Neste caso, facilmente calculamos as probabilidades para cada classe (função <em>softmax</em>).</p>
+<h2 id="treino"><a class="header" href="#treino">Treino</a></h2>
+<p><strong>Dados</strong>: exemplos de treino que consistem em <em>inputs</em> e nos seus <em>outputs</em> desejáveis;</p>
+<p><strong>Objetivo</strong>: arranjar os pesos das conexões de forma a minimizar a perda de cada função: no caso dos ANNs é a generalização do custo da função de regressão logística.</p>
+<p>Existem múltiplos algoritmos de treino baseados no <em>descending gradient</em>:</p>
+<ul>
+<li>O mais usado é a <em>backpropagation</em>;</li>
+<li>Outros: <em>Marquardt-Levenberg</em>, <em>Rprop</em>, <em>Quickprop</em>, etc...</li>
+</ul>
+<h2 id="algoritmo-de-backpropagation"><a class="header" href="#algoritmo-de-backpropagation">Algoritmo de <em>Backpropagation</em></a></h2>
+<ul>
+<li>Baseado no vetor gradiente da superfície de erro que define a direção do <em>maximum descent</em> - método semelhante ao descendente do gradiente;</li>
+<li>Parâmetro importante: taxa de aprendizagem que define a distância qe um algoritmo anda;</li>
+<li>A sequência destes movimentos lidam a um mínimo (no melhor caso, global);</li>
+<li>Execuções do treino para um dado número de <em>epochs</em>: define o número de vezes que cada caso é treinado pela rede, sendo que os exemplos tipicamente são divididos em <em>batches</em> (subconjuntos de exemplos);</li>
+<li>Configuração inicial da rede é, geralmente, gerada de forma aleatória;</li>
+<li><strong>Critério de Paragem</strong>: número fixo de <em>epochs</em>, tempo e critério de convergência baseado num subconjunto de exemplos de validação.</li>
+</ul>
+<h3 id="fases"><a class="header" href="#fases">Fases</a></h3>
+<ul>
+<li><em><strong>Forward Propagation</strong></em>: calcula o valor de <em>output</em> para o vetor de <em>input</em> e o erro cometido;</li>
+<li><em><strong>Backpropagation</strong></em>: dado o erro cometido, este é propagado para trás, ajustando os pesos das conexões da direção do seu decréscimo. É baseado no cálculo do gradiente utilizando a regra em cadeia para funções compostas.</li>
+</ul>
+<p><img src="images/phases_backpropagation.png" alt="image Fases" /></p>
+<h2 id="suma"><a class="header" href="#suma">Suma</a></h2>
+<ul>
+<li>Embora existam muitas variantes de redes neuronais, cada uma pode ser definida em termos de:
+<ul>
+<li><strong>Função de ativação</strong>: transforma o <em>input</em> da rede de um nodo num único sinal de <em>output</em> que será propagado para a frente na rede;</li>
+<li><strong>Arquitetura de Rede</strong> ou topologia: descreve o número de nodos do modelo e o número de camada e a forma como elas estão conectadas;</li>
+<li><strong>Algoritmo de Treino</strong>: especifica como é que os pesos das conexões são definidos de forma a inibir ou excitar neurónios em proporção com o sinal de <em>input</em>.</li>
+</ul>
+</li>
+</ul>
+<h2 id="escolha-da-topologia-para-feedforward-annhiperparâmetros"><a class="header" href="#escolha-da-topologia-para-feedforward-annhiperparâmetros">Escolha da topologia para <em>feedforward</em> ANN/hiperparâmetros</a></h2>
+<ul>
+<li>Quando nodos de <em>input</em> e <em>output</em>?</li>
+<li>Quantas camadas e nodos intermédios?</li>
+<li>Como conectar os neurónios?</li>
+<li>Conexões mais curtas?</li>
+<li><strong>Modelo mais simples</strong>: <em>Feedforward Networks with fully interconnected layers</em> (MLP).</li>
+</ul>
+<h3 id="arquitetura-da-rede-topologia"><a class="header" href="#arquitetura-da-rede-topologia">Arquitetura da Rede (Topologia)</a></h3>
+<ul>
+<li>A capacidade da rede neuronal aprender é baseada na sua arquitetura ou em padrões e estruturas de neurónios interconectados;</li>
+<li>Determina a complexidade das tarefas que podem ser aprendidas pela rede;
+<ul>
+<li>Geralmente, redes mais largas e complexas são capazes de identificar padrões mais súbtis e limites de decisões complexas;</li>
+<li>No entanto, o poder da rede não é apenas em função do seu tamanho, mas sim da maneira que as suas unidades estão colocadas.
+<ul>
+<li>Número de camadas;</li>
+<li>Direção do <em>flow</em> de informação;</li>
+<li>Número de nodos em cada camada da rede.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>O número de camadas escondidas, tipicamente:
+<ul>
+<li>1 camada tem capacidade para aproximar qualquer área de decisão linear (semiplano);</li>
+<li>2 camadas aproximam qualquer área de decisão contínua (regiões convexas);</li>
+<li>3 camadas aproximam qualquer área de decisão (regiões arbitrárias).</li>
+</ul>
+</li>
+</ul>
+<h3 id="número-de-nodos-em-cada-camada"><a class="header" href="#número-de-nodos-em-cada-camada">Número de Nodos em cada Camada</a></h3>
+<ul>
+<li>O número de nodos de <em>input</em> é pré-determinado pelo número de atributos dos dados de <em>input</em>;</li>
+<li>O número de nodos de <em>output</em> é pré-determinado pelo número de resultados que devem ser modelados ou pelo número de classes no resultado;</li>
+<li>O número de nodos escondidos é deixado a escolher ao utilizador antes de treinar o modelo, não havendo qualquer regra fiável para definir o número de neurónios na camada escondida:
+<ul>
+<li>Um grande número de neurónios terá tendência a deixar os resultados muito semelhantes aos dados de treino, correndo o risco de <em>overfitting</em>, ou seja, pode generalizar mal para dados desconhecidos;</li>
+<li>Redes neuronais grandes também podem ser computacionalmente caras e lentas para treinar;</li>
+<li>Um número pequeno de neurónios pode não ser suficiente para modelar a área de decisão pretendida;</li>
+<li>Devem ser testados os valores de neurónios entre metade e o dobro dos neurónios presentes na camada de <em>input</em>;</li>
+<li>Devemos utilizar o modelo que tenha menos nodos e resulte num desempenho adequado num <em>dataset</em> de validação.</li>
+</ul>
+</li>
+</ul>
+<h3 id="generalizaçãooverfitting"><a class="header" href="#generalizaçãooverfitting">Generalização/<em>Overfitting</em></a></h3>
+<ul>
+<li><em>Overtraining</em> uma ANN pode prevenir a generalização por <em>overfitting</em>. A ANN memorizará os casos de treino e não as regras de generalização, o treino pode ser parado mais cedo;</li>
+<li>A regularização pode ser usada de forma semelhante à regressão logística/linear;</li>
+<li>A probabilidade de <em>overfitting</em> aumenta se:
+<ul>
+<li>Tivermos poucos casos de treino (qualidade das amostras);</li>
+<li>Tivermos demasiadas conexões (complexidade da rede).</li>
+</ul>
+</li>
+</ul>
+<h2 id="training-process-a-better-model"><a class="header" href="#training-process-a-better-model"><em>Training Process &quot;A Better Model&quot;</em></a></h2>
+<h3 id="underfitting"><a class="header" href="#underfitting"><em>Underfitting</em></a></h3>
+<p>Este modelo falha na complexidade necessária para capturar corretamente a complexidade inerente ao problema que se pretende resolver. Podemos reconhecer esta situação quando o erro é demasiado grande, tanto nos casos de treino e nos casos de (validação) teste.</p>
+<h3 id="overfitting"><a class="header" href="#overfitting"><em>Overfitting</em></a></h3>
+<p>Este modelo utiliza demasiados parâmetros e foi treinado em demasia.</p>
+<p>Especificamente, aprendeu a identificar qualquer caso no conjunto de treino, tornando-se tão específica que não é capaz de generalizar para imagens semelhantes. Podemos reconhecer esta situação quando o erro nos casos de treino é muito menor que os casos de teste.</p>
+<p>Medidas para reduzir o <em>overfitting</em>:</p>
+<ul>
+<li>Adicionar mais casos ao conjunto de treinos;</li>
+<li>Utilizar arquiteturas que demonstraram generalizar bem;</li>
+<li>Reduzir a complexidade da arquitetura de rede;</li>
+<li>Usar <em>data augmentation</em>;</li>
+<li>Adicionar normalização (<em>Batch Normalization Layer</em>);</li>
+<li>Adicionar <em>dropout</em> (<em>Dropout Layer</em>).</li>
+</ul>
+<h2 id="training-process-learning-curves"><a class="header" href="#training-process-learning-curves"><em>Training Process &quot;Learning Curves&quot;</em></a></h2>
+<ol>
+<li>Um modelo que esteja em <em>underfit</em> que não tenha capacidade suficiente pode ser demonstrado como uma linha reta ou valores de ruída de uma perda relativamente grande, indicando que o modelo não foi capaz de aprender o <em>dataset</em>.
+<ol>
+<li><strong>Adicionar mais observações</strong>: podemos não ter dados suficientes para os padrões existentes terem sinais fortes;</li>
+<li><strong>Adicionar mais atributos</strong>: ocasionalmente, este modelo está em <em>underfit</em>, porque os atributos são insuficientes;</li>
+<li><strong>Reduzir a regularização do modelo</strong>: se tivermos parâmetros de regularização explícitos, devemos remover ou reduzir esses parâmetros;</li>
+<li><strong>Aumento da capacidade do modelo</strong>: a capacidade do modelo pode não ser suficientemente grande para capturar ou aprender sinais existentes.</li>
+</ol>
+</li>
+<li>Um modelo que esteja em <em>underfit</em> que precisa de mais treino pode ser demonstrado como um perda de treino que vai diminuindo até ao fim do gráfico. Isto indica que o modelo é capaz de aprender mais e melhores e o processo de treino foi parado prematuramente.
+<ol>
+<li><strong>Aumentar o número de <em>epochs</em></strong>: até a curva de validação para de melhorar. É uma boa altura para aumentar muito o número de <em>epochs</em> e adicionar uma paragem <em>early</em> de forma a identificar quantos <em>epochs</em> são requeridos;</li>
+<li>Se estiver a demorar demasiado tempo para chegar ao mínimo para a curva de validação, devemos <strong>aumentar a taxa de aprendizagem</strong> para aumentar a travessia e adicionar um <em>callback</em> para ajustar, de forma automática, a taxa de aprendizagem.</li>
+</ol>
+</li>
+<li>Um exemplo de um modelo em <em>overfit</em> pode ser demonstrado por um ponto de inflexão na <em>validation loss</em> que pode ser o ponto no qual se pode parar a experiência, visto ter demonstrado as dinâmicas do <em>overfitting</em>.
+<ol>
+<li>Regulariza o quão rápido um modelo aprende ao reduzir a sua taxa de aprendizagem. Adiciona um <em>callback</em> para, de forma automática, reduzir a taxa de aprendizagem como a <em>validation loss plateaus</em>;</li>
+<li>Regulariza a capacidade do modelo de reduzir o número e/ou o tamanho das camadas escondidas;</li>
+<li>Regulariza os pesos de forma a controlar a complexidade da rede;</li>
+<li>Regulariza os padrões de ocorrência adicionar um <em>dropout</em> de forma a minimizar a chance de encontrar padrões que encaixem e gerem ruído nos dados.</li>
+</ol>
+</li>
+<li>Um <em>dataset</em> de treino pode ser muito pequeno relativamente ao seu <em>dataset</em> de validação, esta situação pode ser identificada através de uma curva de aprendizagem para perda de treino que demonstra uma melhoria e uma semelhança com a curva de aprendizagem para <em>validation loss</em> que apresenta melhora, mas uma grande <em>gap</em> mantém-se entre as curvas.
+<ol>
+<li><strong>Adicionar mais observações</strong>: podemos não ter dados suficientes para capturar padrões presentes tanto nos dados de treino, como de validação;</li>
+<li>Devemos garantir que estamos a selecionar opções de <em>sampling</em> de forma aleatória para utilizarmos nos conjuntos de treino e de validação. Se os dados estiverem ordenados por algum atributo então os dados a validar podem ter atributos não representados nos dados de treino;</li>
+<li>Fazer <em>cross-validation</em> de forma a fazer com que todos os dados tenham a oportunidade de ser representados tanto nos conjuntos de treino e de validação.</li>
+</ol>
+</li>
+<li>Um <em>dataset</em> de validação que possa ser demasiado pequeno relativamente aos dados de treino pode ser demonstrado por uma curva de aprendizagem para <em>training loss</em> que aparenta ser um bom <em>fit</em> e uma curva de aprendizagem para <em>validation loss</em> que mostra movimentos de ruído à volta da <em>training loss</em>.
+<ol>
+<li>Adicionar mais observações ao <em>dataset</em> de validação;</li>
+<li>Se estivermos num número limitado de observações, devemos fazer <em>cross-validation</em> de forma a que todos os dados tenham oportunidade de serem representados nos conjuntos de treino e de validação.</li>
+</ol>
+</li>
+<li>Um conjunto de validação que seja mais fácil de prever que o conjunto de dados de treino pode ser identificado pela <em>validation loss</em> que é menor que a <em>training loss</em>.
+<ol>
+<li>Verificar que não se tem observações duplicadas entre os <em>datasets</em> de treino e de validação;</li>
+<li>Verificar que não existe fuga de informação entre os <em>datasets</em> de treino e de validação;</li>
+<li>Verificar que se estão a escolher amostras aleatórios, para que a variância dos atributos seja consistente em ambos os conjuntos;</li>
+<li>Fazer <em>cross-validation</em> de forma a fazer com que todos os dados tenham a oportunidade de ser representados tanto nos conjuntos de treino e de validação.</li>
+</ol>
+</li>
+</ol>
+<h2 id="redes-neuronais-artificiais-1"><a class="header" href="#redes-neuronais-artificiais-1">Redes Neuronais Artificiais</a></h2>
+<ul>
+<li><strong>Pontos Fortes</strong>:
+<ul>
+<li>A <em>accuracy</em> de problemas de classificação é geralmente elevada para problemas complexos;</li>
+<li>Processamento distribuído, o conhecimento é distribuído pelos pesos das conexões;</li>
+<li>Robusto a lidar com exemplos, mesmo que estes contenham erros;</li>
+<li>Lida bem com atributos redundantes, desde que o peso associado a eles seja pequeno;</li>
+<li>Resultados podem ser discretos, valores reais ou um vetor de valores (discretos ou reais).</li>
+</ul>
+</li>
+<li><strong>Pontos Fracos</strong>:
+<ul>
+<li>Dificuldade em determinar a topologia de rede ótima para um problema;</li>
+<li>Dificuldade para usar, pois tem muitos parâmetros para definir;</li>
+<li>Precisa de pré-processamento específico de dados;</li>
+<li>Precisa de muito tempo para treino;</li>
+<li>Dificuldade a aprender a função de aprendizagem (pesos);</li>
+<li>Conhecimento descoberto não pode ser lido;</li>
+<li>Não providencia explicações para os resultados;</li>
+<li>A incorporação do domínio de conhecimento não é fácil.</li>
+</ul>
+</li>
+</ul>
+<h2 id="frameworks"><a class="header" href="#frameworks"><em>Frameworks</em></a></h2>
+<ul>
+<li>Componentes fundamentais em qualquer <em>framework</em> DL:
+<ul>
+<li><em>The Tensor Object</em>;</li>
+<li>Operações no <em>Tensor Object</em>;</li>
+<li>Computação e otimização de grafos;</li>
+<li>Ferramentas de diferenciação automática;</li>
+<li>Extensões BLAS/cuBLAS e cuDNN.</li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="aprendizagem-por-reforço-1"><a class="header" href="#aprendizagem-por-reforço-1">Aprendizagem por Reforço</a></h1>
+<p><img src="images/types_of_learning.png" alt="image Tipos de Aprendizagem" /></p>
+<ul>
+<li>A aprendizagem por reforço é um método de aprendizagem sobre o que fazer de forma a maximizar um valor numérico de prémio;
+<ul>
+<li>Não é dito ao aprendiz que ações deve efetuar;</li>
+<li>Deve descobrir quais as ações que garantem o melhor retorno, tentando abordá-las.</li>
+</ul>
+</li>
+<li>Características essenciais:
+<ul>
+<li><em>Tryal-and-error</em>;</li>
+<li><em>Delayed reward</em>.</li>
+</ul>
+</li>
+<li>Características complementares:
+<ul>
+<li>Tempo;</li>
+<li>Existe um aprendiz, mas não um professor.</li>
+</ul>
+</li>
+<li>Não é definido pela caracterização de métodos de aprendizagem (não programamos algoritmos para aprender);</li>
+<li>É definido pela caracterização do problema de aprendizagem (programamos as características do problema que pretendemos aprender);</li>
+<li>Não toma decisões com base em experiências passadas (ao contrátrio das CBR ou ANN);</li>
+<li>Olha para o estado atual e decide o que fazer, prevendo o futuro expectável.</li>
+</ul>
+<h2 id="aplicações"><a class="header" href="#aplicações">Aplicações</a></h2>
+<ul>
+<li>Robótica para automação da indústria;</li>
+<li>Planeamento de estratégia de negócio;</li>
+<li><em>Machine Learning</em> e processamento de dados;</li>
+<li>Ajuda na criação de sistemas de treino que providenciam instruções personalizadas e materiais de acordo com os requisitos dos estudantes;</li>
+<li>Controlo aéreo e controlo de movimentos de <em>robots</em>;</li>
+<li>Carros autónomos.</li>
+</ul>
+<p><strong>Quando não usar?</strong></p>
+<ul>
+<li>Quando temos dados suficientes para resolver o problemas com um método de aprendizagem supervisionada;
+<ul>
+<li>Aprendizagem por reforço é <strong>computacionalmente pesada</strong> e <strong>consome muitp tempo</strong>, especialmente, quando o espaço de ação é grande.</li>
+</ul>
+</li>
+</ul>
+<h2 id="termos"><a class="header" href="#termos">Termos</a></h2>
+<ul>
+<li><strong>Agente</strong> (\( A \)): Entidade assumida que toma ações num ambiente de forma a ganhar algum prémio;</li>
+<li><strong>Ambiente</strong> (\( e \)): Cenário que um agente tem de enfrentar;</li>
+<li><strong>Prémio</strong> (\( R \)): Retorno imediata dado a um agente quando toma uma ação específica ou executa uma tarefa;</li>
+<li><strong>Estado</strong> (\( S \)): Refere-se à situação atual retornada pelo ambiente;</li>
+<li><strong>Política</strong> (\( \pi \)): Estratégia a ser aplicada pelo agente de forma a decidir a próxima ação baseada no estado atual;</li>
+<li><strong>Valor</strong> (\( V \)): Retorno esperado a longo-prazo tendo um desconto quando comparado ao prémio a curto-prazo;</li>
+<li><strong>Função Valor</strong>: Especifica o valor de um estado que é o valor total do prémio. Pode ajudar o agente acerca do caminho que este deve tomar;</li>
+<li><strong>Modelo do Ambiente</strong>: Imita o comportamento do ambiente. Ajuda a fazer inferências e a determinar como o ambiente se irá comportar;</li>
+<li><strong>Métodos baseados em modelos</strong>: Método para resolver problemas de aprendizagem por reforço que utilizam <em>model-based methods</em>;</li>
+<li><em>Q value</em> ou <em>action value</em> (\( Q \)): Muito semelhante ao valor. A única diferença entre os dois é que tem um parâmetro adicionar, a ação atual.</li>
+</ul>
+<h2 id="procedimento"><a class="header" href="#procedimento">Procedimento</a></h2>
+<ul>
+<li>Agente toma ações no ambiente;</li>
+<li>Ambiente dá-lhe um prémio/<em>penalty</em>;</li>
+<li>Agente calcula a conveniência da ação;</li>
+<li>Agente toma uma nova ação no novo ambiente.</li>
+</ul>
+<p>Assim:</p>
+<ul>
+<li>O ciclo de vida produz uma sequência de estados, \( S_i \), ações \( A_i \) e prémios imediatos, \( R_i \);</li>
+<li>Cada vez que um agente toma uma ação no ambiente, é-lhe fornecido um prémio ou uma <em>penalty</em> demonstrando o quão desejada era a sua ação;</li>
+<li>A função do agente é aprender a política de controlo, \( \pi: S \rightarrow A \), que maximiza a soma (expectável) de prémios, sendo que os prémios futuros serão descontados de forma exponencial em relação ao seu <em>delay</em>: \( \sum_{i = 0}^b \gamma^i R_i \)</li>
+</ul>
+<h2 id="trade-off-exploitationexploration"><a class="header" href="#trade-off-exploitationexploration"><em>Trade-off Exploitation/Exploration</em></a></h2>
+<ul>
+<li><em><strong>Exploration</strong></em>: é acerca de encontrar mais informações acerca do ambiente, ou seja, explorar muitos estados e ações no ambiente;</li>
+<li><em><strong>Exploitation</strong></em>: é acerca de dar <em>exploit</em> acerca de informação conhecida para maximizar o prémio.</li>
+</ul>
+<p>Se selecionarmos uma ação <em>greedy</em>, estaremos a dar <em>exploit</em> do conhecimento atual acerca do valor das ações. </p>
+<p>Se selecionarmos uma ação não-<em>greedy</em>, entaõ estaremos a explorar, visto que isto providencia que melhoremos a nossa estimativa dos valores da ação não-<em>greedy</em>.</p>
+<h2 id="cálculo-do-q-value"><a class="header" href="#cálculo-do-q-value">Cálculo do <em>Q-Value</em></a></h2>
+<ul>
+<li><em>Temporal Difference Learning</em>:
+<ul>
+<li>O agente começa por assumir que todos os estados e todas as ações têm um valor inicial de 0;</li>
+<li>O agente atualiza os valores calculando a diferença entre o valor esperado e o valor encontrado.</li>
+</ul>
+</li>
+<li><em>Q-Learning</em>:
+<ul>
+<li>\( Q(s_t, a_t) \): valor de tomar uma ação \( a_t \) num estado \( s_t \);</li>
+<li>\( r_{t+1} \): recompoensa imediata;</li>
+<li>\( \alpha \): taxa de aprendizagem, \( 0 \lt \alpha \lt \lt 1 \);
+<ul>
+<li>Proporção usada para atualizar o valor de utilidade após cada ação.</li>
+</ul>
+</li>
+<li>\( \gamma \): fato de desconto, \( 0 \lt \lt \gamma \lt 1 \);
+<ul>
+<li>Encoraja o agente a preferir recompensas imediatas a tardias.</li>
+</ul>
+</li>
+<li>\( Q(s_t, a_t) = Q(s_t, a_t) + \alpha[r_{t+1} + \gamma \times Q(s_{t + 1}, a_{t + 1}) - Q(s_t, a_t)] \).</li>
+</ul>
+</li>
+</ul>
+<h2 id="q-learning-vs-sarsa"><a class="header" href="#q-learning-vs-sarsa"><em>Q-Learning vs SARSA</em></a></h2>
+<ul>
+<li>SARSA:
+<ul>
+<li>\( Q(s_t, a_t) = Q(s_t, a_t) + \alpha[r_{t + 1} + \gamma \times Q(s_{t + 1}, a_{t + 1}) - Q(s_t, a_t)] \).
+<ul>
+<li>O agente está no estado 1, realiza a ação 1 e obtém a recompensa 1;</li>
+<li>No estado 2, realiza a ação 2 e obtém a recompensa 2 e ,então, atualiza o valor da ação 1 no estado 1.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><em>Q-Learning</em>:
+<ul>
+<li>\( Q(s_t, a_t) = Q(s_t, a_t) + \alpha[r_{t + 1} + \gamma \times MAX_a\ Q(s_{t + 1}, a_{t + 1}) - Q(s_t, a_t)] \);
+<ul>
+<li>O agente está no estado 1, realiza a ação 1 e obtém a recompensa 1;</li>
+<li>Vê a recompensa máxima no estado 2 e atualiza o valor da ação 1 realizado no estado 1.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>O SARSA considera a política de controlo que está a ser seguida e atualiza o valor das ações;</li>
+<li>O <em>Q-Learning</em> assume que está sempre a seguir uma política ótima e utiliza-a para atualização.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="ensemble-learning"><a class="header" href="#ensemble-learning"><em>Ensemble Learning</em></a></h1>
+<h2 id="principais-classes-de-ensemble-learning"><a class="header" href="#principais-classes-de-ensemble-learning">Principais Classes de <em>Ensemble Learning</em></a></h2>
+<p><img src="images/ensemble_classes.png" alt="image Principais Classes" /></p>
+<h2 id="max-voting-classificação"><a class="header" href="#max-voting-classificação"><em>Max Voting</em> (Classificação)</a></h2>
+<ul>
+<li>Cada modelo de ML faz um voto e a opção mais votada é selecionada. Simples, mas efetivo;</li>
+<li>Há dois tipos de <em>max voting</em>:
+<ul>
+<li><em>Hard Voting</em>:
+<ul>
+<li>\( C_1 \) prevê A;</li>
+<li>\( C_2 \) prevê B;</li>
+<li>\( C_3 \) prevê B;</li>
+<li>Como \( \frac{2}{3} \) dos modelos previram a classe B, a classe B é a <em>ensemble decision</em>.</li>
+</ul>
+</li>
+<li><em>Soft Voting</em>:
+<ul>
+<li>\( C_1 \) prevê A com probabilidade de 99%;</li>
+<li>\( C_2 \) prevê A com probabilidade de 49%;</li>
+<li>\( C_3 \) prevê A com probabilidade de 49%;</li>
+<li>A probabilidade média de pertencer a A é de 65.67%, no entanto, a classe A é a <em>ensemble decision</em>.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="peso-médio-e-pesado-regressão"><a class="header" href="#peso-médio-e-pesado-regressão">Peso médio e pesado (Regressão)</a></h2>
+<ul>
+<li>A previsão final que devemos considerar é a média dos modelos de previsão;</li>
+<li>Um modelo de <em>ensemble</em> de peso pesado permite que múltiplos modelos contribuam para a previsão baseada acerca do quão bom o modelo é. Se o modelo for melhor que o <em>dataset</em> em geral, dar-lhe-emos mais peso. Esta generalização ajudará a reduzir a tendência e a melhor o desempenho geral.</li>
+</ul>
+<h2 id="bagging-bootstrap-aggregation"><a class="header" href="#bagging-bootstrap-aggregation"><em>Bagging (Bootstrap Aggregation)</em></a></h2>
+<ul>
+<li>Tem dois passos principais:
+<ul>
+<li>Utiliza dados de treino existentes e faz instâncias múltiplas de dados (<em>bootstrapping</em>), podendo, para isso, utilizar conjuntos de treino múltiplas vezes;</li>
+<li>Faz múltiplos modelos com base nos dados obtidos pelo <em>bootstrap</em> e múltiplos modelos de <em>output</em>. Agrega os resultados do modelo e obtém o resultado final.</li>
+</ul>
+</li>
+</ul>
+<h2 id="random-forest"><a class="header" href="#random-forest"><em>Random Forest</em></a></h2>
+<ol>
+<li>Cria um <em>bootstrapped dataset</em>;</li>
+<li>Constrói uma árvore de decisão;
+<ol>
+<li>Utilizando <em>bootstrapped data</em> e</li>
+<li>Considerando um conjunto aleatório de subconjuntos de atributos (o número de atributos, geralmente, é a raíz quadrada de \( n \));</li>
+</ol>
+</li>
+<li>Repetir os passos 1 e 2 pelo número de árvores pretendidas;</li>
+<li>Estimar a assertividade da <em>Random Forest</em>.
+<ol>
+<li>Utilizando amostras <em>Out-Of-Bag</em> e agregação, calculando o erro <em>Out-Of-Bag</em>;</li>
+<li>Iterar pelos passos 2 e 3, alterando o número de atributos utilizados, minimizando o erro.</li>
+</ol>
+</li>
+</ol>
+<h2 id="boosting"><a class="header" href="#boosting"><em>Boosting</em></a></h2>
+<p>Inicialmente, um modelo é corrido e os resultados são obtidos, onde pontos específicos são classificados de forma correta e os restantes de forma incorreta. Damos mais peso a pontos que são incorretamente classificados e voltamos a correr o modelo. Visto que existem pontos específicos com maior peso, é muito provável que o modelo os vá incluir.</p>
+<p>Continuamos a repetir este processo e múltiplos modelos são criados, onde cada um irá corrigir os erros do modelo anterior.</p>
+<h2 id="adaboost-vs-xgboost"><a class="header" href="#adaboost-vs-xgboost"><em>AdaBoost vs XGBoost</em></a></h2>
+<p><em><strong>AdaBoost</strong></em> (<em>adaptive boosting</em>):</p>
+<ul>
+<li>Combina árvores de decisão (aprendizes fracos);</li>
+<li>Dá peso aos valores incorretos;</li>
+<li>Crescimento sequencial da árvore considerando os erros do passado;</li>
+<li>Robusto perante o <em>overfitting</em>;</li>
+<li>Tem poucos híperparâmetros.</li>
+</ul>
+<p><em><strong>XgBoost</strong></em> (<em>gradient boosting</em>):</p>
+<ul>
+<li>A ideia é usar o <em>gradient descent</em> para otimizar os parâmetros dos novos estimadores como estimadores adicionados no <em>boosting</em>;</li>
+<li>Ao tirar as melhores partes do <em>AdaBoost</em> e <em>Random Forests</em>, adicionando alguns atributos:
+<ul>
+<li>Crescimento sequencial da árvore;</li>
+<li>Minimiza a função de perda utilizando o <em>gradient descent</em>;</li>
+<li>Processamento paralelo;</li>
+<li>Regularização dos parâmetros.</li>
+</ul>
+</li>
+</ul>
+<h2 id="stacking"><a class="header" href="#stacking"><em>Stacking</em></a></h2>
+<p>A ideia de fazer <em>stacking</em> é fazer muitas previsões nos <em>datasets</em> de treino e teste com poucos modelos. Isto é feito tanto no <em>dataset</em> de treino, como no <em>dataset</em> de teste.</p>
+<p>Assim, não consideramos os dados originais e de teste, mas sim os novos modelos de <em>output</em> nos dados de treino como o modelo de treino base. Os novos dados de treino são os modelos de <em>output</em> dos dados de teste.</p>
+<h2 id="blending"><a class="header" href="#blending"><em>Blending</em></a></h2>
+<p>Podemos pensar em <em>blending</em> como um tipo de <em>stacking</em>, onde o meta-modelo é treinado nas previsões feitas pelo modelo no conjunto de validação <em>hold-out</em>.</p>
+<h2 id="ensemble-learning-1"><a class="header" href="#ensemble-learning-1"><em>Ensemble Learning</em></a></h2>
+<p>Os modelos trabalham combinando múltiplos <em>learners</em> de base num único líder forte, ajudando a diminuir a tendência, a variância e melhorando as previsões.</p>
+<p>Existem dois grupos de modelos de <em>ensemble</em>:</p>
+<ul>
+<li><strong>Modelos de <em>ensemble</em> paralelo</strong>: tem como lógica aumentar a independência entre os <em>learners</em> de base. Apesar dos erros das previsões feitas pelos modelos serem diferentes, isto permite que o <em>ensemble model</em> possa fazer uma média dos erros;
+<ul>
+<li>Exemplos: <em>Random Forest</em> com árvores de decisão independentes.</li>
+</ul>
+</li>
+<li><strong>Modelos de <em>ensemble</em> sequencial</strong>: tem c-omo lógica aumentar a dependência entre os <em>learners</em> de base. Apesar dos erros feitos pelo modelo 1 estarem sequencialmente corretos, pelo modelo 2 também e por aí adiante, isto ajuda a obter o <em>ensemble</em> mais preciso possível.
+<ul>
+<li>Exemplos: <em>AdaBoost ensemble model</em>.</li>
+</ul>
+</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            MathJax.Hub.Register.StartupHook('End', function() {
+                window.setTimeout(window.print, 100);
+            });
+        });
+        </script>
+    </body>
+</html>

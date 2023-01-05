@@ -1,0 +1,312 @@
+<!DOCTYPE HTML>
+<html lang="pt" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Teórica 04 - Teóricas de DAA</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="chapter_1.html"><strong aria-hidden="true">1.</strong> Teórica 01</a></li><li class="chapter-item expanded "><a href="chapter_2.html"><strong aria-hidden="true">2.</strong> Teórica 02</a></li><li class="chapter-item expanded "><a href="chapter_3.html"><strong aria-hidden="true">3.</strong> Teórica 03</a></li><li class="chapter-item expanded "><a href="chapter_4.html" class="active"><strong aria-hidden="true">4.</strong> Teórica 04</a></li><li class="chapter-item expanded "><a href="chapter_5.html"><strong aria-hidden="true">5.</strong> Teórica 05</a></li><li class="chapter-item expanded "><a href="chapter_6.html"><strong aria-hidden="true">6.</strong> Teórica 06</a></li><li class="chapter-item expanded "><a href="chapter_7.html"><strong aria-hidden="true">7.</strong> Teórica 07</a></li><li class="chapter-item expanded "><a href="chapter_8.html"><strong aria-hidden="true">8.</strong> Téorica 08</a></li><li class="chapter-item expanded "><a href="chapter_9.html"><strong aria-hidden="true">9.</strong> Teórica 09</a></li><li class="chapter-item expanded "><a href="chapter_10.html"><strong aria-hidden="true">10.</strong> Teórica 10</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Teóricas de DAA</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="teórica-04"><a class="header" href="#teórica-04">Teórica 04</a></h1>
+<h2 id="aprendizagem-supervisionada---regressão-linear-e-logística"><a class="header" href="#aprendizagem-supervisionada---regressão-linear-e-logística">Aprendizagem Supervisionada - Regressão Linear e Logística</a></h2>
+<h3 id="modelos-lineares"><a class="header" href="#modelos-lineares">Modelos Lineares</a></h3>
+<ul>
+<li>Caracterizadas pela simplicidade de cálculos e análises;</li>
+<li>Linearidade é definida nos termos de funções com as seguintes propriedades:
+<ul>
+<li>\( f(x+y)=f(x)+f(y) \);</li>
+<li>\( f(ax)=af(x) \).</li>
+</ul>
+</li>
+<li>Usada para classificação (seperação entre classes) e regressão;</li>
+<li>Não resolve problemas não-lineares.</li>
+</ul>
+<h3 id="regressão-linear"><a class="header" href="#regressão-linear">Regressão Linear</a></h3>
+<p>Tenciona prever o valor de saída \( Y \) baseado na variável de entrada \( X \).</p>
+<ul>
+<li>Enquandra uma linha reta num conjunto de dados de observações;</li>
+<li>Utiliza esta linha para prever valores não observados.</li>
+</ul>
+<h4 id="modelos-de-regressão-linear"><a class="header" href="#modelos-de-regressão-linear">Modelos de Regressão Linear</a></h4>
+<p>Representa a relação entre variáveis de entrada \( x_1,..., x_n \) e uma variável de saída \( y \).</p>
+<p>Previsão do modelo (para o i-ésimo modelo):</p>
+<ul>
+<li>
+<p>\( n \rightarrow \) número de atributos;</p>
+</li>
+<li>
+<p>\( \Theta \rightarrow \) parâmetros do modelo.<br />
+\[ ŷ_{(i)} = h_{\Theta}(x_{1}^{(i)},...,x_{n}^{(i)}) \]</p>
+</li>
+<li>
+<p><strong>Como funciona?</strong></p>
+<ul>
+<li>Geralmente, utiliza uma função de &quot;Custo por Erro/Perda&quot; e minimizar o seu valor (minimizar o erro quadrado entre cada ponto da linha).</li>
+</ul>
+</li>
+<li>
+<p><strong>Função do custo por erro/perda</strong>: MSE (<em>means square error</em>)</p>
+</li>
+<li>
+<p><strong>Objetivo</strong>: identificar os parâmetros do modelo de forma a minimizar o valor de J.</p>
+</li>
+</ul>
+<h4 id="múltipla-regressão-linear"><a class="header" href="#múltipla-regressão-linear">Múltipla Regressão Linear</a></h4>
+<ul>
+<li>Utilizada para determinar o efeito do número de variáveis independentes (\( x_1, x_2, ..., x_n \)) numa única variável dependente (\( y \)).</li>
+</ul>
+<h3 id="regressão-logística"><a class="header" href="#regressão-logística">Regressão Logística</a></h3>
+<ul>
+<li>Variável dependente discreta: problema de classificação;</li>
+<li>Utiliza modelos de regressão para classificação binária através da interpretação de modelos de <em>output</em> de forma a extraír a classe.</li>
+<li>O modelo é dado pela aplicação da <em>sigmoid</em> à função de regressão linear.</li>
+</ul>
+<h4 id="função-sigmoid"><a class="header" href="#função-sigmoid">Função <em>Sigmoid</em></a></h4>
+<ul>
+<li>Recebe qualquer valor e coloca o seu <em>output</em> entre 0 e 1;</li>
+<li>Isto provoca uma probabilidade entre 0 e 1 de permanecer a uma classe;</li>
+<li>Podemos definir um ponto de <em>threshold</em> em 0.5, definindo:
+<ul>
+<li>Baseado na probabilidade, é <em>assigned</em> a classe;</li>
+<li>Resultados previstos abaixo do <em>threshold</em> vão para a classe 0;</li>
+<li>Resultados previstos acima do <em>threshold</em> vão para a classe 1.</li>
+</ul>
+</li>
+</ul>
+<h4 id="múltiplas-classes"><a class="header" href="#múltiplas-classes">Múltiplas Classes</a></h4>
+<ul>
+<li>Pode ser aplicada para mais do que 2 classes;</li>
+<li>Neste caso, a estratégia é treinar o modelo &quot;binário&quot; para classe de forma separada;</li>
+<li>Cada modelo estima a probabilidade do exemplo pertencer à dada classe;</li>
+<li>Na altura de prever novos exemplos, cada modelo é aplicado escolhendo a classe da qual o valor previsto do modelo é maior.</li>
+</ul>
+<h4 id="função-de-erro"><a class="header" href="#função-de-erro">Função de erro:</a></h4>
+<p>Para cada exemplo \( x \):</p>
+<ul>
+<li>Se y = 1: \( -log(h_{\Theta}(x)) \);
+<ul>
+<li>Se a previsão for correta, <strong>o erro é zero</strong>;</li>
+<li>Caso contrário, quando se aproxima de 0, o erro tende para infinito.</li>
+</ul>
+</li>
+<li>Se y = 0 \( -log(1-h_{\Theta}(x)) \).
+<ul>
+<li>Se a previsão for correta, <strong>o erro é zero</strong>;</li>
+<li>Caso contrário, quando se aproxima de 1, o erro tende para infinita.</li>
+</ul>
+</li>
+</ul>
+<h2 id="estimativa-de-parâmetros"><a class="header" href="#estimativa-de-parâmetros">Estimativa de Parâmetros</a></h2>
+<h3 id="otimização"><a class="header" href="#otimização">Otimização</a></h3>
+<p>Conhecendo a estrutura do modelo: a estimativa de parâmetros é o problema de otimização numérica - minimização da função de erro.</p>
+<p>No caso de modelos lineares, o método dos mínimos quadrados podem ser utilizados, o que minimiza a função de erro (quadrado dos erros) ou o método iterativo.</p>
+<h3 id="método-dos-mínimos-quadrados"><a class="header" href="#método-dos-mínimos-quadrados">Método dos Mínimos Quadrados</a></h3>
+<p>Método analítico para determinar os valores ótimos que minimizam J.</p>
+<p>A complexidade computacional ao treinar um modelo utilizando este método é linear ao número de instâncias e atributos.</p>
+<h3 id="gradiente-descendente-para-regressão-linear"><a class="header" href="#gradiente-descendente-para-regressão-linear">Gradiente Descendente para Regressão Linear</a></h3>
+<p>Método que depende da função de erro ser diferenciável. Método iterativo em que cada iteração altera os valores de cada um dos parâmetros \( \Theta_{j} \)</p>
+<p>O parâmetro \( \alpha \) é a taxa de aprendizagem e controla a velocidade de atualização dos parâmetros.</p>
+<ul>
+<li>Baixos valores de \( \alpha \) garantem convergência mas podem ser mais lentos;</li>
+<li>Altos valores de \( \alpha \) podem trazer uma convergência rápida, mas tem o risco de divergência.</li>
+</ul>
+<h3 id="gradiente-descendente-vs-método-analítico"><a class="header" href="#gradiente-descendente-vs-método-analítico">Gradiente Descendente <em>vs</em> Método Analítico</a></h3>
+<ul>
+<li>MA garante a solução ótima, GD pode não convergir;</li>
+<li>No MA não existem parâmetros, GD pode demorar a convergir;</li>
+<li>MA pode tornar-se muito lento quando \( N \) for muito grande;</li>
+<li>Modelos genéricos de GD são aplicáveis para outros tipos de modelo.</li>
+</ul>
+<h3 id="métodos-avançados"><a class="header" href="#métodos-avançados">Métodos Avançados</a></h3>
+<p><img src="images/par_est_adv.png" alt="image Métodos Avançados" /></p>
+<h2 id="soluções-para-overfitting-modelos-funcionais"><a class="header" href="#soluções-para-overfitting-modelos-funcionais">Soluções Para <em>Overfitting</em>: Modelos Funcionais</a></h2>
+<ul>
+<li>Reduzir o número de atributos (coeficientes) utilizados;</li>
+<li>Selecionar atributos &quot;manualmente&quot; tendo por base o conhecimento do programa;</li>
+<li>Utilizar algoritmos de seleções de atributos;</li>
+<li>Regularização.
+<ul>
+<li>Manter todos os atributos mas tentar reduzir a magnitude dos valores dos parâmetros.</li>
+</ul>
+</li>
+</ul>
+<h2 id="standardização-e-normalização"><a class="header" href="#standardização-e-normalização">Standardização e Normalização</a></h2>
+<ul>
+<li>Tranformações nos dados são, por vezes, necessárias para os algoritmos de aprendizagem funcionarem melhor;</li>
+<li>Algoritmos de GD podem não ter um funcionamento correta com variáveis de escalas muito diferentes;</li>
+<li>Vários métodos possíveis:
+<ul>
+<li>Converter a média para 0 e o desvio padrão para 1;</li>
+<li>Converter os valores para um intervalo de 0 a 1 ou de -1 a 1, definindo os valores mínimos e máximos.</li>
+</ul>
+</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="chapter_3.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="chapter_5.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="chapter_3.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="chapter_5.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>

@@ -1,0 +1,276 @@
+<!DOCTYPE HTML>
+<html lang="pt" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Teórica 02 - Teóricas de DAA</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="chapter_1.html"><strong aria-hidden="true">1.</strong> Teórica 01</a></li><li class="chapter-item expanded "><a href="chapter_2.html" class="active"><strong aria-hidden="true">2.</strong> Teórica 02</a></li><li class="chapter-item expanded "><a href="chapter_3.html"><strong aria-hidden="true">3.</strong> Teórica 03</a></li><li class="chapter-item expanded "><a href="chapter_4.html"><strong aria-hidden="true">4.</strong> Teórica 04</a></li><li class="chapter-item expanded "><a href="chapter_5.html"><strong aria-hidden="true">5.</strong> Teórica 05</a></li><li class="chapter-item expanded "><a href="chapter_6.html"><strong aria-hidden="true">6.</strong> Teórica 06</a></li><li class="chapter-item expanded "><a href="chapter_7.html"><strong aria-hidden="true">7.</strong> Teórica 07</a></li><li class="chapter-item expanded "><a href="chapter_8.html"><strong aria-hidden="true">8.</strong> Téorica 08</a></li><li class="chapter-item expanded "><a href="chapter_9.html"><strong aria-hidden="true">9.</strong> Teórica 09</a></li><li class="chapter-item expanded "><a href="chapter_10.html"><strong aria-hidden="true">10.</strong> Teórica 10</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Teóricas de DAA</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="teórica-02"><a class="header" href="#teórica-02">Teórica 02</a></h1>
+<h2 id="aprendizagem-automática-machine-learning-vs-ciência-de-dados-data-science"><a class="header" href="#aprendizagem-automática-machine-learning-vs-ciência-de-dados-data-science">Aprendizagem Automática (<em>Machine Learning</em>) <em>vs</em> Ciência de Dados (<em>Data Science</em>)</a></h2>
+<h3 id="machine-learning"><a class="header" href="#machine-learning"><em>Machine Learning</em></a></h3>
+<ul>
+<li>Utiliza dados;</li>
+<li>Tem como produto final um artefacto de <em>software</em>;</li>
+<li>Quem trabalha em ML são <em>Data Engineer</em>.</li>
+</ul>
+<h3 id="data-science"><a class="header" href="#data-science"><em>Data Science</em></a></h3>
+<ul>
+<li>Analisa conjuntos de dados;</li>
+<li>Tem como produto final apresentações e relatórios;</li>
+<li>Quem trabalha em DS são <em>Data Scientists</em>.</li>
+</ul>
+<h2 id="aprendizagem"><a class="header" href="#aprendizagem">Aprendizagem</a></h2>
+<ul>
+<li>Ganhar capacidades e conhecimentos;</li>
+<li>Criar uma linha de raciocínio para resolver problemas;</li>
+<li>Memorizar;</li>
+<li>Reconhecer erros;</li>
+<li>Corrigir erros;</li>
+<li>Imitar comportamentos.</li>
+</ul>
+<h2 id="aprendizagem-automática"><a class="header" href="#aprendizagem-automática">Aprendizagem Automática</a></h2>
+<p>Capacidade de aprender de modo autónomo e independente.</p>
+<p>Os algoritmos de <em>machine learning</em> são algoritmos orientados aos dados.</p>
+<h2 id="aprendizagem-simbólica-vs-aprendizagem-não-simbólica"><a class="header" href="#aprendizagem-simbólica-vs-aprendizagem-não-simbólica">Aprendizagem Simbólica <em>vs</em> Aprendizagem Não Simbólica</a></h2>
+<h3 id="aprendizagem-simbólica"><a class="header" href="#aprendizagem-simbólica">Aprendizagem Simbólica</a></h3>
+<ul>
+<li>É capaz de explicar as suas decisões;</li>
+<li>Não é capaz de dar resposta a alguns problemas, pois as regras e o conhecimento têm de ser codificados à mão;</li>
+<li>Está muito presa ao mundo académico e aos laboratórios universitários.</li>
+<li><strong>Exemplos</strong>: Baseado em Casos, Árvores de Decisão, etc...</li>
+</ul>
+<h3 id="aprendizagem-não-simbólica"><a class="header" href="#aprendizagem-não-simbólica">Aprendizagem Não Simbólica</a></h3>
+<ul>
+<li>Não é capaz de explicar as suas decisões;</li>
+<li>Apresenta melhores resultados que a AS;</li>
+<li>É, em geral, menos aceitável em decisões de alto risco.</li>
+<li><strong>Exemplos</strong>: Redes Neuronais Artificiais, Algoritmos Genéticos e Evolucionários, etc...</li>
+</ul>
+<h2 id="aprendizagem-supervisionada"><a class="header" href="#aprendizagem-supervisionada">Aprendizagem Supervisionada</a></h2>
+<ul>
+<li>Aprende com dados para os quais já sabe a resposta correta;</li>
+<li>A grande maioria dos algoritmos de ML utiliza este tipo de aprendizagem;</li>
+<li>Normalmente, são divididos em 2 categorias:
+<ul>
+<li><strong>Classificação</strong>: Apresenta os resultados em classes;</li>
+<li><strong>Regressão</strong>: Apresenta resultados em forma contínua.</li>
+</ul>
+</li>
+</ul>
+<h2 id="aprendizagem-não-supervisionada"><a class="header" href="#aprendizagem-não-supervisionada">Aprendizagem Não Supervisionada</a></h2>
+<ul>
+<li>Aprende com dados para os quais não se sabe a resposta certa;</li>
+<li>Tem como objetivo modelar a estrutura ou a distribuição dos dados do problema.</li>
+<li>Divide-se em 3 categorias:
+<ul>
+<li><strong>Segmentação (<em>clustering</em>)</strong>: Organização dos dados em grupos coerentes;</li>
+<li><strong>Redução (<em>reduction</em>)</strong>: Reduzir o número de características ou decompor o conjunto de dados em múltiplos componentes;</li>
+<li><strong>Associação</strong>: Procura regras que associem o comportamento demonstrado pelos dados.</li>
+</ul>
+</li>
+</ul>
+<h2 id="aprendizagem-por-reforço"><a class="header" href="#aprendizagem-por-reforço">Aprendizagem por Reforço</a></h2>
+<ul>
+<li>Utilizam técnicas de auto-alimentação de sinais com a noção de recompensa/penalização;</li>
+<li>Tem capacidade crítica sobre os próprios resultados produzidos pelo algoritmo;</li>
+<li>2 categorias:
+<ul>
+<li><em><strong>Q-Learning</strong></em>: Assume que se está a seguir uma política ótima e utiliza-a para atualização dos valores das ações;</li>
+<li><em><strong>SARSA</strong></em>: Considera a política de controlo que está a ser seguida e atualiza o valor das ações.</li>
+</ul>
+</li>
+</ul>
+<h2 id="metodologias"><a class="header" href="#metodologias">Metodologias</a></h2>
+<p>Existem duas grandes metodologias:</p>
+<ol>
+<li><strong>CRISP-DM</strong>;</li>
+<li><strong>SEMMA</strong>.</li>
+</ol>
+<h3 id="motivos-para-utilizar"><a class="header" href="#motivos-para-utilizar">Motivos para utilizar</a></h3>
+<ul>
+<li>Permite que os projetos sejam replicados;</li>
+<li>Apoia no planeamento e gestão do projeto;</li>
+<li>Incentiva as melhores práticas e ajuda a obter os melhores resultados.</li>
+</ul>
+<h3 id="semma"><a class="header" href="#semma"><em>SEMMA</em></a></h3>
+<p>Dividido em diversas etapas que funcionam de forma circular:</p>
+<ol>
+<li><em><strong>S</strong></em><em>ample</em>: Recolhe uma parte representativa dos dados;</li>
+<li><em><strong>E</strong></em><em>xplore</em>: Exploração e análise de dados;</li>
+<li><em><strong>M</strong></em><em>odify</em>: Engenharia e transformação de <em>features</em>;</li>
+<li><em><strong>M</strong></em><em>odel</em>: Conceção do modelo;</li>
+<li><em><strong>A</strong></em><em>ssess</em>: Avaliação do modelo.</li>
+</ol>
+<h3 id="crisp-dm"><a class="header" href="#crisp-dm"><em>CRISP-DM</em></a></h3>
+<p><img src="images/crispdm.png" alt="image CRISP-DM" /></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="chapter_1.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="chapter_3.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="chapter_1.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="chapter_3.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>

@@ -1,0 +1,278 @@
+<!DOCTYPE HTML>
+<html lang="pt" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Teórica 06 - Teóricas de DAA</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="chapter_1.html"><strong aria-hidden="true">1.</strong> Teórica 01</a></li><li class="chapter-item expanded "><a href="chapter_2.html"><strong aria-hidden="true">2.</strong> Teórica 02</a></li><li class="chapter-item expanded "><a href="chapter_3.html"><strong aria-hidden="true">3.</strong> Teórica 03</a></li><li class="chapter-item expanded "><a href="chapter_4.html"><strong aria-hidden="true">4.</strong> Teórica 04</a></li><li class="chapter-item expanded "><a href="chapter_5.html"><strong aria-hidden="true">5.</strong> Teórica 05</a></li><li class="chapter-item expanded "><a href="chapter_6.html" class="active"><strong aria-hidden="true">6.</strong> Teórica 06</a></li><li class="chapter-item expanded "><a href="chapter_7.html"><strong aria-hidden="true">7.</strong> Teórica 07</a></li><li class="chapter-item expanded "><a href="chapter_8.html"><strong aria-hidden="true">8.</strong> Téorica 08</a></li><li class="chapter-item expanded "><a href="chapter_9.html"><strong aria-hidden="true">9.</strong> Teórica 09</a></li><li class="chapter-item expanded "><a href="chapter_10.html"><strong aria-hidden="true">10.</strong> Teórica 10</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Teóricas de DAA</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="máquinas-de-vetores-de-suporte"><a class="header" href="#máquinas-de-vetores-de-suporte">Máquinas de Vetores de Suporte</a></h1>
+<ul>
+<li>Algoritmo de <em>Machine Learning</em> supervisionado que pode ser utilizado para problemas de classificação (quase) e problemas de regressão;</li>
+<li>Geralmente, um algoritmode aprendizagem tenta aprender o máximo sobre as características comuns (o que diferencia uma classe de outra) de uma classe e a classificação será feita baseando-se nessas características representativas sobre as quais aprendeu (a classificação é baseada na diferença entre as classes). No entanto, as SVM trabalham de forma oposta, ou seja, procuram a similaridade entre classes e utiliza-as como &quot;vetores de suporte&quot;;</li>
+<li>A ideia principal é dar <em>plot</em> a cada item daos dados como um ponto num espaço \( n \)-dimensional (em que \( n \) é o número de atributos), fazendo a classificação a partir da descoberta de um híper-plano que diferencie as classes;</li>
+<li>Funciona bem para classifcar <em>datasets</em> com muitos atributos;</li>
+<li>Encontra vetores de suporte que dividem os dados;</li>
+<li>Aplica <em>kernels</em> de forma a representar os dados em espaços de vários dimensões para encontrar os híper-planos que podem não surgir em dimensões pequenas;</li>
+<li>Os híperlanos são barreiras de decisão que ajudam a classificar os pontos dos dados;</li>
+<li>Pontos que se encontrem em ambos os lados de um plano podem ser atribuídos a diferentes classes;</li>
+<li>A dimensão do híper-plano dependerá do número de atributos, ou seja, no caso de só termos 2 atributos, o híper-plano será uma linha, já no caso de termos 3 atributos, o híper-plano será um plano 2D.</li>
+</ul>
+<h2 id="como-funciona"><a class="header" href="#como-funciona">Como funciona?</a></h2>
+<ol>
+<li>Tem-se um conjunto de dados de treino etiquetado;</li>
+<li>Desenha-se um híper-plano que separe as classes;
+<ol>
+<li>Podendo desenhar vários, deve escolher-se aquele que maximize a margem entre classes;</li>
+<li>Os pontos presentes nas linhas de margem de cada classe são denominados de vetores de suporte.</li>
+</ol>
+</li>
+</ol>
+<h2 id="hinge-loss"><a class="header" href="#hinge-loss"><em>Hinge Loss</em></a></h2>
+<ul>
+<li>Pretendemos maximizar as margens entre os pontos dos dados e o híper-plano definido. Para isso, as SVMs utilizam a <em>hinge loss</em>:</li>
+</ul>
+<p>\[ l(y) = max(0, 1 - t \dot y) \]</p>
+<ul>
+<li>Isto irá:
+<ul>
+<li>Retornar 0 no caso do valor previsto e o valor real serem ambos positiovs, negativos ou nulos;</li>
+<li>Senão, irá calcular a perda.</li>
+</ul>
+</li>
+</ul>
+<h2 id="kernels"><a class="header" href="#kernels"><em>Kernels</em></a></h2>
+<ul>
+<li>Diferentes <em>Kernels</em> providenciam diferentes resultados para um dado <em>dataset</em>:
+<ul>
+<li><strong>Linear</strong>;</li>
+<li><em><strong>Gaussian Radial Basis Function</strong></em> (RBF);</li>
+<li><strong>Polinomial</strong>;</li>
+<li><strong>Sigmoidal</strong>.</li>
+</ul>
+</li>
+</ul>
+<h2 id="regularização"><a class="header" href="#regularização">Regularização</a></h2>
+<h3 id="baixa-regularização"><a class="header" href="#baixa-regularização">Baixa Regularização</a></h3>
+<p>O otimizador irá procurar por um híper-plano que tenha uma <strong>grande margem</strong>, mesmo que isso implique classificar mais pontos de forma errada.</p>
+<p><img src="images/svm_low_reg.png" alt="image Exemplo" /></p>
+<h3 id="alta-regularização"><a class="header" href="#alta-regularização">Alta Regularização</a></h3>
+<p>O otimizador irá escolher um híper-plano com uma menor margem, caso isso implque uma melhor classificação dos pontos.</p>
+<p><img src="images/svm_high_reg.png" alt="image Exemplo" /></p>
+<h2 id="gamma"><a class="header" href="#gamma"><em>Gamma</em></a></h2>
+<h3 id="gamma-baixo"><a class="header" href="#gamma-baixo"><em>Gamma</em> Baixo</a></h3>
+<p>Pontos longe do possível plano são considerados no cálculo do plano.</p>
+<p><img src="images/svm_low_gam.png" alt="image Exemplo" /></p>
+<h3 id="gamma-alto"><a class="header" href="#gamma-alto"><em>Gamma</em> Alto</a></h3>
+<p>Apenas os pontos perto do possível plano são considerados.</p>
+<p><img src="images/svm_high_gam.png" alt="image Exemplo" /></p>
+<h2 id="margem"><a class="header" href="#margem">Margem</a></h2>
+<h3 id="má-margem"><a class="header" href="#má-margem">Má Margem</a></h3>
+<p>Está demasiado perto de uma classe e distante da outra.</p>
+<h3 id="boa-margem"><a class="header" href="#boa-margem">Boa Margem</a></h3>
+<p>Está equidistante de ambas as classes.</p>
+<h2 id="pontos"><a class="header" href="#pontos">Pontos</a></h2>
+<h3 id="fortes"><a class="header" href="#fortes">Fortes</a></h3>
+<ul>
+<li>Muito efetivo em <em>datasets</em> com um grande conjunto de atributos (p.e. financeiros ou médicos);</li>
+<li>Efetivo nos casos em que o número de atributos é superior ao número de pontos de dados;</li>
+<li>Utiliza um subconjunto de pontos de treino na função de decisão dos vetores de suiporte que tem um consumo eficiente de memória;</li>
+<li>Funções de <em>kernel</em> diferentes podem ser especificadas para uma função de decisão (é possível utilizar <em>kernels</em> comuns, mas também se pode criar o próprio <em>kernel</em>).</li>
+</ul>
+<h3 id="fracos"><a class="header" href="#fracos">Fracos</a></h3>
+<ul>
+<li>Se o número de atributos for muito maior que o número de pontos, é crucial evitar o <em>overfitting</em> aquando da escolha da função de <em>kernel</em> e do termo de regularização;</li>
+<li>Não providenciam estimativas de probabilidades de forma direta. São calculadas utilizando um método caro de <em>n-fold cross-validation</em>;</li>
+<li>Trabalham melhor em conjuntos de amostras pequenos, devido ao elevado tempo de aprendizagem que requerem.</li>
+</ul>
+<h2 id="regressão-de-vetores-de-suporte"><a class="header" href="#regressão-de-vetores-de-suporte">Regressão de Vetores de Suporte</a></h2>
+<ul>
+<li>Algoritmo supervisionado para prever valores discretos;</li>
+<li>Usa os mesmos princípios que as SVMs;</li>
+<li>A ideia principal é encontrar a melhor linha de enquadramento, sendo que será aquela que tiver o número máximo de pontos nela;</li>
+<li>Basicamente, o objetivo passa por considerar os pontos que estão na linha fronteira de decisão.</li>
+</ul>
+<h3 id="pontos-1"><a class="header" href="#pontos-1">Pontos</a></h3>
+<h4 id="fortes-1"><a class="header" href="#fortes-1">Fortes</a></h4>
+<ul>
+<li>Robusto no tratamento de <em>outliers</em>;</li>
+<li>O modelo de decisão pode ser facilmente atualizado;</li>
+<li>Tem uma grande capacidade de generalização, com uma grande taxa de acerto;</li>
+<li>A sua implementação é fácil.</li>
+</ul>
+<h4 id="fracos-1"><a class="header" href="#fracos-1">Fracos</a></h4>
+<ul>
+<li>Não é aplicável em <em>datasets</em> grandes;</li>
+<li>Nos casos em que o número de atributos for maior para cada ponto de dados que o número de amostras de treino, o algoritmo terá um desempenho abaixo do esperado;</li>
+<li>O modelo de decisão não tem um bom comportamento quando o conjunto de dados tem algum ruído.</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="chapter_5.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="chapter_7.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="chapter_5.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="chapter_7.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>
